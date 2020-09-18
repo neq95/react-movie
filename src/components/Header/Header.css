@@ -1,5 +1,6 @@
 .header {
   background-color: var(--background-main);
+  border-bottom: 2px solid white;
 }
 
 .header__container {
