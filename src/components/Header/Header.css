@@ -2,16 +2,21 @@
   height: 70px;
   display: flex;
   background-color: var(--background-main);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
 }
 
 .header__logo {
-  margin: 10px;
+  flex: 0 0 20%;
 }
 
 .header__search {
   display: flex;
   align-items: center;
   margin-left: 10px;
+  flex: 1 1 60%;
+  margin-left: 3%;
 }
 
 .header__nav {
@@ -25,11 +30,30 @@
 .header__burger {
   display: flex;
   align-items: center;
-  margin-left: 25px;
   cursor: pointer;
+  flex: 1 1 20%;
+  justify-content: flex-end;
 }
 
 .header__burger .fa-bars{
   color: var(--main-dark);
   font-size: 20px;
+}
+
+.nav__items {
+  display: flex;
+}
+
+@media(min-width: 600px) {
+  .header__burger {
+    display: none;
+  }
+
+  .header__nav {
+    display: block;
+  }
+  
+  .header__cart {
+    display: block;
+  }
 }

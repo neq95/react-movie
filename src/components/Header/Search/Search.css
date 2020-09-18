@@ -10,6 +10,7 @@
   background-color: var(--background-main);
   outline: none;
   color: var(--white);
+  width: 100%;
 }
 
 .search__input::placeholder {

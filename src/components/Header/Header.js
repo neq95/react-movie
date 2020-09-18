@@ -4,6 +4,7 @@ import "./Header.css";
 import Search from "./Search/Search";
 import Sidebar from "./Sidebar/Sidebar";
 import Logo from "../UI/Logo/Logo";
+import NavigationItem from "../NavigationItem/NavigationItem";
 
 class Header extends React.Component {
   state = {
@@ -25,15 +26,6 @@ class Header extends React.Component {
   render() {
     let {showSidebar} = this.state;
 
-    let sidebar = null;
-    if(showSidebar) {
-      sidebar = (
-        <div className="sidebar">
-          <Sidebar show={showSidebar} onCloseSidebar={this.onCloseSidebar}/>
-        </div>
-      )
-    }
-
     return (
       <header className="header">
         <div className="header__logo">
@@ -42,11 +34,12 @@ class Header extends React.Component {
         <div className="header__search">
           <Search />
         </div>
-        <nav className="header__nav">
-          <ul>
-            <li>Home</li>
-            <li>Movies</li>
-            <li>Serials</li>
+        <nav className="header__nav nav">
+          <ul className="nav__items">
+            <NavigationItem 
+              href="/"
+              label="Home"
+            />
           </ul>
         </nav>
         <div className="header__cart cart">
@@ -58,7 +51,7 @@ class Header extends React.Component {
         <div className="header__burger" onClick={this.onOpenSidebar}>
           <i className="fas fa-bars"></i>
         </div>
-        {sidebar}
+        <Sidebar show={showSidebar} onCloseSidebar={this.onCloseSidebar}/>
       </header>
     )
   }
