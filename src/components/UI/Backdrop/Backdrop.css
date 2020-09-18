@@ -1,0 +1,8 @@
+.backdrop {
+  width: 100vh;
+  height: 100vh;
+  background-color: var(--light-gray);
+  position: fixed;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,36 @@
+.search {
+  position: relative;
+  width: 100%;
+}
+
+.search__input {
+  border-radius: 20px;
+  padding: 5px 7px;
+  border: 1px solid var(--main-dark);
+  background-color: var(--background-main);
+  outline: none;
+  color: var(--white);
+}
+
+.search__input::placeholder {
+  color: var(--main-dark);
+}
+
+.search__button {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.search__button .fa-search {
+  color: var(--main-dark);
+  transition: transform 0.1s ease;
+}
+
+.search__button .fa-search:active {
+  transform: scale(1.1);
+}

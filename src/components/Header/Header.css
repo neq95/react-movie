@@ -1,0 +1,35 @@
+.header {
+  height: 70px;
+  display: flex;
+  background-color: var(--background-main);
+}
+
+.header__logo {
+  margin: 10px;
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__cart {
+  display: none;
+}
+
+.header__burger {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.header__burger .fa-bars{
+  color: var(--main-dark);
+  font-size: 20px;
+}
