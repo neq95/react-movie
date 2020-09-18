@@ -1,10 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import "./Header.css";
 import Search from "./Search/Search";
 import Sidebar from "./Sidebar/Sidebar";
 import Logo from "../UI/Logo/Logo";
-import NavigationItem from "../NavigationItem/NavigationItem";
 
 class Header extends React.Component {
   state = {
@@ -36,17 +36,33 @@ class Header extends React.Component {
         </div>
         <nav className="header__nav nav">
           <ul className="nav__items">
-            <NavigationItem 
-              href="/"
-              label="Home"
-            />
+            <li className="nav__item">
+              <NavLink to="/movies" className="nav__link">
+                Movies
+              </NavLink>
+            </li>
+            <li className="nav__item">
+              <NavLink to="/tv-shows" className="nav__link">
+                TV Shows
+              </NavLink>
+            </li>
+            <li className="nav__item">
+              <NavLink to="/watchlist" className="nav__link">
+                Watchlist
+              </NavLink>
+            </li>
           </ul>
         </nav>
-        <div className="header__cart cart">
-          <div className="cart__icon">
-            <i className="fas fa-shopping-cart"></i>
+        <div className="header__profile profile">
+          <div className="profile__not-auth">
+            <div className="profile__icon">
+              <i className="fas fa-user"></i>
+            </div>
+            <div className="profile__box">
+              <button className="profile__button profile__button--log-in">Log in</button>
+              <button className="profile__button profile__button--sign-up">Sign up</button>
+            </div>
           </div>
-          <span className="cart__quantity">0</span>
         </div>
         <div className="header__burger" onClick={this.onOpenSidebar}>
           <i className="fas fa-bars"></i>

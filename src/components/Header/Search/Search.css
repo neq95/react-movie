@@ -11,6 +11,7 @@
   outline: none;
   color: var(--white);
   width: 100%;
+  font-size: 1.5rem;
 }
 
 .search__input::placeholder {
@@ -20,11 +21,13 @@
 .search__button {
   position: absolute;
   right: 10px;
-  top: 6px;
+  top: 50%;
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
 }
 
 .search__button .fa-search {
@@ -34,4 +37,11 @@
 
 .search__button .fa-search:active {
   transform: scale(1.1);
+}
+
+@media(min-width: 600px) {
+  .search__input {
+    padding: 7px 10px;
+    font-size: 1.8rem;
+  }
 }
