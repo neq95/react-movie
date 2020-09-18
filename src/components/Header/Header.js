@@ -5,6 +5,7 @@ import "./Header.css";
 import Search from "./Search/Search";
 import Sidebar from "./Sidebar/Sidebar";
 import Logo from "../UI/Logo/Logo";
+import Container from "../UI/Container/Container";
 
 class Header extends React.Component {
   state = {
@@ -28,46 +29,48 @@ class Header extends React.Component {
 
     return (
       <header className="header">
-        <div className="header__logo">
-          <Logo />
-        </div>
-        <div className="header__search">
-          <Search />
-        </div>
-        <nav className="header__nav nav">
-          <ul className="nav__items">
-            <li className="nav__item">
-              <NavLink to="/movies" className="nav__link">
-                Movies
-              </NavLink>
-            </li>
-            <li className="nav__item">
-              <NavLink to="/tv-shows" className="nav__link">
-                TV Shows
-              </NavLink>
-            </li>
-            <li className="nav__item">
-              <NavLink to="/watchlist" className="nav__link">
-                Watchlist
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-        <div className="header__profile profile">
-          <div className="profile__not-auth">
-            <div className="profile__icon">
-              <i className="fas fa-user"></i>
-            </div>
-            <div className="profile__box">
-              <button className="profile__button profile__button--log-in">Log in</button>
-              <button className="profile__button profile__button--sign-up">Sign up</button>
+        <Container className="header__container">
+          <div className="header__logo">
+            <Logo />
+          </div>
+          <div className="header__search">
+            <Search />
+          </div>
+          <nav className="header__nav nav">
+            <ul className="nav__items">
+              <li className="nav__item">
+                <NavLink to="/movies" className="nav__link">
+                  Movies
+                </NavLink>
+              </li>
+              <li className="nav__item">
+                <NavLink to="/tv-shows" className="nav__link">
+                  TV Shows
+                </NavLink>
+              </li>
+              <li className="nav__item">
+                <NavLink to="/watchlist" className="nav__link">
+                  Watchlist
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+          <div className="header__profile profile">
+            <div className="profile__not-auth">
+              <div className="profile__icon">
+                <i className="fas fa-user"></i>
+              </div>
+              <div className="profile__box">
+                <button className="profile__button profile__button--log-in">Log in</button>
+                <button className="profile__button profile__button--sign-up">Sign up</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="header__burger" onClick={this.onOpenSidebar}>
-          <i className="fas fa-bars"></i>
-        </div>
-        <Sidebar show={showSidebar} onCloseSidebar={this.onCloseSidebar}/>
+          <div className="header__burger" onClick={this.onOpenSidebar}>
+            <i className="fas fa-bars"></i>
+          </div>
+          <Sidebar show={showSidebar} onCloseSidebar={this.onCloseSidebar}/>
+        </Container>
       </header>
     )
   }
