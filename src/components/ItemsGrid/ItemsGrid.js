@@ -1,8 +1,12 @@
 import React from "react";
 
+import MovieCard from "../MovieCard/MovieCard";
+
 const ItemsGrid = (props) => {
   return (
-    <div>ItemsGrid</div>
+    <div>
+      <MovieCard />
+    </div>
   )
 }
 

@@ -1,6 +1,5 @@
 .header {
   background-color: var(--background-main);
-  border-bottom: 2px solid white;
 }
 
 .header__container {
@@ -46,7 +45,7 @@
 }
 
 @media(min-width: 600px) {
-  .header {
+  .header__container {
     padding: 0 2%;
   }
 
@@ -125,6 +124,10 @@
 }
 
 @media(min-width: 1200px) {
+  .header__container {
+    padding: 0;
+  }
+  
   .header__profile {
     flex: 1 1 20%;
   }

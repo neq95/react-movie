@@ -1,0 +1,26 @@
+.movie-card {
+  position: relative;
+  display: inline-block;
+}
+
+.movie-card__info {
+  margin-top: 15px;
+  font-size: 1.4rem;
+}
+
+.movie-card__genres {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: var(--light-white);
+}
+
+.movie-card__rating {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e69e19;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+}

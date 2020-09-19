@@ -3,6 +3,7 @@ import React from "react";
 import "./HomePage.css";
 import Container from "../../../components/UI/Container/Container";
 import * as actions from "../../../store/actions/actions";
+import ItemsGrid from "../../../components/ItemsGrid/ItemsGrid";
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -13,7 +14,7 @@ class HomePage extends React.Component {
     return (
       <main className="home-page">
         <Container className="home__container">
-          <div>HomePage</div>
+          <ItemsGrid />
         </Container>
       </main>
     )

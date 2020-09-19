@@ -16,6 +16,8 @@
   --main-light: #83CFDF;
   --white:#EBE5E2;
   --light-gray: rgba(0,0,0,0.6);
+  --light-white: rgba(255,255,255,0.7);
+  --black: #000;
 }
 
 html, 
@@ -31,4 +33,5 @@ html {
 
 body {
   font-size: 1.6rem;
+  color: var(--white);
 }
