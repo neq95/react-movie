@@ -1,6 +1,7 @@
 .movie-card {
   display: inline-block;
   max-width: 100px;
+  justify-self: center;
 }
 
 .movie-card__poster {
@@ -15,6 +16,7 @@
 }
 
 .movie-card__title {
+  color: var(--white);
   cursor: pointer;
   font-weight: 500;
 }
