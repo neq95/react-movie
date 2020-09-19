@@ -8,9 +8,9 @@ const storeMovies = (moviesData) => {
   }
 }
 
-export const moviesRequest = () => {
+export const moviesRequest = (config) => {
   return (dispatch) => {
-    movieDB.getMovies()
+    movieDB.getMovies(config)
       .then(data => dispatch(storeMovies(data)));
   }
 }

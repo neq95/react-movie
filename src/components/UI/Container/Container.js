@@ -1,13 +1,12 @@
 import React from "react";
 
+import "./Container.css";
+
 const Container = (props) => {
   let className = props.className ? `container ${props.className}` : "container";
-  let style = {
-    maxWidth: "1200px",
-    margin: "0 auto"
-  }
+
   return (
-    <div className={className} style={style}>
+    <div className={className}>
       {props.children}
     </div>
   )

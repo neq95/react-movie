@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4%;
 }
 
 .header__logo {
@@ -33,10 +32,17 @@
 .header__burger {
   display: flex;
   align-items: center;
-  cursor: pointer;
   flex: 1 1 10%;
   justify-content: flex-end;
   margin-left: 10px;
+}
+
+.burger__button {
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
 }
 
 .header__burger .fa-bars{
@@ -45,10 +51,6 @@
 }
 
 @media(min-width: 600px) {
-  .header__container {
-    padding: 0 2%;
-  }
-
   .header__search {
     flex: 1 1 50%;
   }
@@ -124,10 +126,6 @@
 }
 
 @media(min-width: 1200px) {
-  .header__container {
-    padding: 0;
-  }
-  
   .header__profile {
     flex: 1 1 20%;
   }

@@ -1,6 +1,27 @@
 .items-grid {
-  margin-top: 50px;
+  margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 50px 20px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 30px 20px;
+}
+
+@media(min-width: 600px) {
+  .items-grid {
+    margin-top: 40px;
+    gap: 40px 30px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+@media(min-width: 900px) {
+  .items-grid {
+    margin-top: 50px;
+    gap: 50px 30px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .items-grid {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  }
 }

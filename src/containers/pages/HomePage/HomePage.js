@@ -8,7 +8,9 @@ import ItemsGrid from "../../../components/ItemsGrid/ItemsGrid";
 
 class HomePage extends React.Component {
   componentDidMount() {
-    this.props.moviesRequest();
+    this.props.moviesRequest({
+      image: {type: "poster", width: "big"}
+    });
   }
 
   render() {
@@ -31,7 +33,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    moviesRequest: () => dispatch(actions.moviesRequest())
+    moviesRequest: (config) => dispatch(actions.moviesRequest(config))
   }
 }
 

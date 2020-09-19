@@ -66,8 +66,10 @@ class Header extends React.Component {
               </div>
             </div>
           </div>
-          <div className="header__burger" onClick={this.onOpenSidebar}>
-            <i className="fas fa-bars"></i>
+          <div className="header__burger burger">
+            <button className="burger__button" onClick={this.onOpenSidebar}>
+              <i className="fas fa-bars"></i>
+            </button>
           </div>
           <Sidebar show={showSidebar} onCloseSidebar={this.onCloseSidebar}/>
         </Container>

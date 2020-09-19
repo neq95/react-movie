@@ -1,9 +1,20 @@
 class MovieDB {
   #baseURL = "https://api.themoviedb.org/3/";
-  #imagesPosterURL = "https://image.tmdb.org/t/p/w154";
+  #imagesPosterURL = "https://image.tmdb.org/t/p/";
   #imagesBackdropURL = "https://image.tmdb.org/t/p/w1280";
   #apiKey = "04c35731a5ee918f014970082a0088b1";
   #genres = {};
+  #imageConfiguration = {
+    poster: {
+      small: "w92",
+      medium: "w154",
+      big: "w185"
+    },
+    backdrop: {
+      medium: "w780",
+      big: "w1280"
+    }
+  };
 
   async _checkGenres() {
     if(Object.keys(this.#genres).length === 0) {
@@ -11,7 +22,7 @@ class MovieDB {
     }
   }
 
-  //helper function to make required url with parametres
+  //Make and return required url with parametres, api key is included
   _makeURL(path, params) {
     let url = this.#baseURL + encodeURI(path);
     let resultURL = new URL(url);
@@ -22,6 +33,7 @@ class MovieDB {
     return resultURL;
   }
 
+  //Get genres from api and store them in convenient form
   async _getGenres() {
     let url = this._makeURL("genre/movie/list");
     let data = await fetch(url)
@@ -33,8 +45,11 @@ class MovieDB {
     data.genres.map(genre => this.#genres[genre.id] = genre.name);
   }
 
-  getMovies = async() => {
-    //check if genres object exist
+  getMovies = async(config) => {
+    let {type, width} = config.image;
+    let imageSize = this.#imageConfiguration[type][width];
+
+    //Fetch 1 time and then just check, if it exist
     await this._checkGenres();
 
     let params = {
@@ -43,7 +58,7 @@ class MovieDB {
       page: 1
     }
 
-    let url = this._makeURL("movie/popular", params);
+    let url = this._makeURL("movie/popular/", params);
 
     let data = await fetch(url)
       .then(response => {
@@ -59,7 +74,7 @@ class MovieDB {
       return {
         id: movie.id,
         backdrop: this.#imagesBackdropURL + movie.backdrop_path,
-        poster: this.#imagesPosterURL + movie.poster_path,
+        poster: this.#imagesPosterURL + imageSize + movie.poster_path,
         genres,
         title: movie.title || movie.original_title,
         rating: movie.vote_average

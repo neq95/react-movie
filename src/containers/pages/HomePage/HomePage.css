@@ -1,8 +1,35 @@
 .home-page {
   background-color: var(--background-main);
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .home-page__title {
   color: var(--main-light);
+  font-size: 2.4rem;
+}
+
+@media(min-width: 600px) {
+  .home-page {
+    padding-top: 30px;
+  }
+
+  .home-page__title {
+    font-size: 3rem;
+  }
+}
+
+@media(min-width: 900px) {
+  .home-page {
+    padding-top: 40px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .home-page {
+    padding-top: 50px;
+  }
+
+  .home-page__title {
+    font-size: 3.5rem;
+  }
 }
