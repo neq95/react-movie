@@ -1,11 +1,41 @@
 class MovieDB {
-  #baseURL = "https://api.themoviedb.org/";
-  #imagesBaseURL = "https://image.tmdb.org/t/p/";
+  #baseURL = "https://api.themoviedb.org/3/";
+  #imagesPosterURL = "https://image.tmdb.org/t/p/w154";
+  #imagesBackdropURL = "https://image.tmdb.org/t/p/w1280";
   #apiKey = "04c35731a5ee918f014970082a0088b1";
+  #genres = {};
+
+  async _checkGenres() {
+    if(Object.keys(this.#genres).length === 0) {
+      await this._getGenres();
+    }
+  }
+
+  //helper function to make required url with parametres
+  _makeURL(path, params) {
+    let url = this.#baseURL + encodeURI(path);
+    let resultURL = new URL(url);
+
+    params = Object.assign({api_key: this.#apiKey}, params);
+    Object.keys(params).forEach(key => resultURL.searchParams.set(key, params[key]));
+
+    return resultURL;
+  }
+
+  async _getGenres() {
+    let url = this._makeURL("genre/movie/list");
+    let data = await fetch(url)
+      .then(response => {
+        if(!response.ok) throw new Error("Can't get data from api");
+        return response.json();
+      })
+
+    data.genres.map(genre => this.#genres[genre.id] = genre.name);
+  }
 
   getMovies = async() => {
-    let url = "3/movie/popular"
-    let resultURL = new URL(url, this.#baseURL);
+    //check if genres object exist
+    await this._checkGenres();
 
     let params = {
       api_key: this.#apiKey,
@@ -13,11 +43,9 @@ class MovieDB {
       page: 1
     }
 
-    Object.keys(params).forEach(key => resultURL.searchParams.set(key, params[key]));
-    
-    console.log(resultURL);
+    let url = this._makeURL("movie/popular", params);
 
-    let movies = await fetch(resultURL)
+    let data = await fetch(url)
       .then(response => {
         if(!response.ok) {
           throw new Error("Can't get data from api");
@@ -25,7 +53,24 @@ class MovieDB {
         return response.json();
       });
     
-    return movies;
+    //transfrom recieved data to keep only relevant information
+    let movies = data.results.map(movie => {
+      let genres = movie.genre_ids.map(genreId => this.#genres[genreId]);
+      return {
+        id: movie.id,
+        backdrop: this.#imagesBackdropURL + movie.backdrop_path,
+        poster: this.#imagesPosterURL + movie.poster_path,
+        genres,
+        title: movie.title || movie.original_title,
+        rating: movie.vote_average
+      }
+    });
+
+    return {
+      page: data.page,
+      totalPages: data.total_pages,
+      movies
+    }
   }
 }
 

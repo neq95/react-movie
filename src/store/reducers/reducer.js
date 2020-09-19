@@ -1,14 +1,16 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  movies: []
+  moviesData: {
+    movies: []
+  }
 }
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case actionTypes.ADD_MOVIES:
+    case actionTypes.FETCH_MOVIES_REQUEST:
       return {
-        movies: action.movies
+        moviesData: action.moviesData
       }
     default:
       return state;

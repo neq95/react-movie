@@ -1,1 +1,2 @@
 export const ADD_MOVIES = "ADD_MOVIES";
+export const FETCH_MOVIES_REQUEST = "FETCH_MOVIES_REQUEST"

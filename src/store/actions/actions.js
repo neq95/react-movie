@@ -1,14 +1,16 @@
-// import * as actionTypes from "./actionTypes";
+import * as actionTypes from "./actionTypes";
 import movieDB from "../../utils/ajax/movie-db";
 
-// const storeMovies = (movies) => {
-//   return {
-//     type: actionTypes.ADD_MOVIES,
-//     movies
-//   }
-// }
+const storeMovies = (moviesData) => {
+  return {
+    type: actionTypes.FETCH_MOVIES_REQUEST,
+    moviesData
+  }
+}
 
-export const addMovies = async() => {
-  let movies = await movieDB.getMovies()
-  console.log(movies);
+export const moviesRequest = () => {
+  return (dispatch) => {
+    movieDB.getMovies()
+      .then(data => dispatch(storeMovies(data)));
+  }
 }

@@ -1,6 +1,11 @@
 .movie-card {
   position: relative;
   display: inline-block;
+  max-width: 154px;
+}
+
+.movie-card__poster {
+  cursor: pointer;
 }
 
 .movie-card__info {
@@ -8,10 +13,14 @@
   font-size: 1.4rem;
 }
 
+.movie-card__title {
+  cursor: pointer;
+}
+
 .movie-card__genres {
   margin-top: 10px;
   font-size: 1.2rem;
-  color: var(--light-white);
+  color: var(--secondary-light);
 }
 
 .movie-card__rating {
@@ -21,6 +30,10 @@
   transform: translate(-50%, -50%);
   background-color: #e69e19;
   border-radius: 20px;
-  padding: 5px 10px;
+  width: 35px;
+  height: 20px;
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

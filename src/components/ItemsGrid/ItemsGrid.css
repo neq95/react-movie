@@ -1,0 +1,6 @@
+.items-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 50px 20px;
+}
