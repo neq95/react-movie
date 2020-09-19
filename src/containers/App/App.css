@@ -13,13 +13,14 @@
   --background-second: #373b69;
   --background-darkest: #1d1c26;
   --main-dark:#474c88;
-  --main-medium: #708ED2;
+  --main-medium: #8d9dff;
   --main-light: #83CFDF;
   --secondary-light: #b7e3ec;
-  --white:#EBE5E2;
-  --light-gray: rgba(0,0,0,0.6);
+  --white:#fafbff;
+  --light-gray: rgba(0,0,0,0.5);
   --light-white: rgba(255,255,255,0.7);
   --black: #000;
+  --light-blue: #eef0fd;
 }
 
 html, 

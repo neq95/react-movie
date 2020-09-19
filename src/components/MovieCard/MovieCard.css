@@ -2,3 +2,81 @@
   background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), 
   url("https://image.tmdb.org/t/p/w300/9xNOiv6DZZjH7ABoUUDP0ZynouU.jpg") no-repeat center / cover;
 }
+
+.card {
+  border-radius: 10px;
+  background-color: var(--white);
+  color: var(--background-main);
+}
+
+.card__wrapper {
+  padding: 15px 15px 0 15px;
+}
+
+.card__info {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  column-gap: 15px;
+}
+
+.card__rating {
+  display: flex;
+  padding: 5px 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--main-medium);
+  color: var(--white);
+  font-size: 1.2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__title {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--main-medium);
+  margin-top: 10px;
+}
+
+.card__duration {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.card__description {
+  margin-top: 20px;
+  font-size: 1.4rem;
+}
+
+.card__cast-title {
+  margin-top: 20px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--main-medium);
+}
+
+.cast__actors {
+  margin-top: 10px;
+  background-color: var(--light-blue);
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+}
+
+.cast__actor {
+  display: flex;
+  max-width: 60px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actor__profile {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: url("https://image.tmdb.org/t/p/w45/aEmyadfRXTmmR7UW7OXsm5a6smS.jpg") no-repeat center / cover;
+}
+
+.actor__name {
+  text-align: center;
+}
