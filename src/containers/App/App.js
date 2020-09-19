@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "../../components/Header/Header";
 import HomePage from "../pages/HomePage/HomePage";
 import Footer from "../../components/Footer/Footer";
+import FilmPage from "../pages/FilmPage/FilmPage";
 
 class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/film" component={FilmPage} />
         </Switch>
         <Footer />
       </div>

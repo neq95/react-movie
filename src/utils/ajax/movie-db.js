@@ -11,6 +11,7 @@ class MovieDB {
       big: "w185"
     },
     backdrop: {
+      small: "w300",
       medium: "w780",
       big: "w1280"
     }
