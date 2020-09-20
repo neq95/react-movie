@@ -1,34 +1,47 @@
 import React from "react";
 
 import "./MovieCard.css";
+import Spinner from "../UI/Spinner/Spinner";
+import * as imageConfig from "../../utils/imageConfig"
 
-const MovieCard = (props) => {
-  console.log(props.movie);
+const MovieCard = ({movie, width}) => {
+  if(!movie) {
+    return <Spinner />
+  }
+
+  let poster = <div className="poster__skeleton"></div>;
+
+  if(width) {
+    let posterSrc = imageConfig.imagePath + imageConfig.dimensions.poster[width] + movie.poster;
+    poster = <img src={posterSrc} alt="poster"/>
+  }
+    
+
   return (
     <div className="movie-card">
       <article className="movie-card__card card">
         <div className="card__wrapper">
           <section className="card__info">
             <div className="card__poster">
-              <img src="https://image.tmdb.org/t/p/w92/h4VB6m0RwcicVEZvzftYZyKXs6K.jpg" alt="poster"/>
+              {poster}
             </div>
             <div className="card__header">
               <div className="card__extra">
-                <div className="card__rating">7.2</div>
+                <div className="card__rating">{movie.rating}</div>
                 <div className="card__add--mobile card-add">
                   <i className="card-add__icon fas fa-plus"></i>
                   <span className="card-add__text">Want</span>
                 </div>
               </div>
-              <h1 className="card__title">{props.movie.title}</h1>
+              <h1 className="card__title">{movie.title}</h1>
               <div className="card__duration">
-                {Math.floor(props.movie.runtime / 60)}h {props.movie.runtime % 60}min
+                {Math.floor(movie.duration / 60)}h {movie.duration % 60}min
               </div>
-              <p className="card__description--desktop">{props.movie.overview}</p>
+              <p className="card__description--desktop">{movie.description}</p>
             </div>
             <button className="card__add--desktop">Add to Watchlist</button>
           </section>
-          <p className="card__description">{props.movie.overview}</p>
+          <p className="card__description">{movie.description}</p>
           <h3 className="card__cast-title">CAST</h3>
         </div>
         <section className="card__cast cast">

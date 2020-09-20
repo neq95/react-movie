@@ -13,6 +13,12 @@
   padding: 15px 15px 0 15px;
 }
 
+.poster__skeleton {
+  width: 100px;
+  height: 140px;
+  background-color: var(--light-gray);
+}
+
 .card__info {
   display: grid;
   grid-template-columns: 100px 1fr;
@@ -124,6 +130,11 @@
     padding: 25px 25px 0 25px;
   }
 
+  .poster__skeleton {
+    width: 154px;
+    height: 230px;
+  }  
+
   .card__info {
     grid-template-columns: 170px 1fr;
   }
@@ -185,6 +196,11 @@
   .card__add--mobile {
     display: none;
   }
+
+  .poster__skeleton {
+    width: 185px;
+    height: 280px;
+  }  
 
   .card__info {
     grid-template-columns: 200px 450px 1fr;

@@ -32,6 +32,17 @@ class MovieDB {
     data.genres.map(genre => this.#genres[genre.id] = genre.name);
   }
 
+  _transformMovie(data) {
+    //transfrom recieved data to keep only relevant information
+    return {
+      id: data.id,
+      poster: data.poster_path,
+      title: data.title || data.original_title,
+      rating: data.vote_average,
+      description: data.overview
+    }
+  }
+
   getMovies = async() => {
     //Fetch 1 time and then just check, if it exist
     await this._checkGenres();
@@ -52,17 +63,12 @@ class MovieDB {
         return response.json();
       });
     
-    //transfrom recieved data to keep only relevant information
     let movies = data.results.map(movie => {
       let genres = movie.genre_ids.map(genreId => this.#genres[genreId]);
-      return {
-        id: movie.id,
-        backdrop: movie.backdrop_path,
-        poster: movie.poster_path,
-        genres,
-        title: movie.title || movie.original_title,
-        rating: movie.vote_average
-      }
+      let transformedMovie = this._transformMovie(movie);
+      transformedMovie.genres = genres;
+
+      return transformedMovie;
     });
 
     return {
@@ -70,6 +76,27 @@ class MovieDB {
       totalPages: data.total_pages,
       movies
     }
+  }
+
+  getMovie = async(id) => {
+    let params = {
+      language: "en-US"
+    }
+
+    let url = this._makeURL(`movie/${id}`, params);
+    let data = await fetch(url)
+      .then(response => {
+        if(!response.ok) throw new Error();
+        return response.json();
+      })
+    let genres = data.genres.map(genre => genre.name);
+    let duration = data.runtime;
+
+    return {
+      ...this._transformMovie(data),
+      genres,
+      duration
+    };
   }
 }
 

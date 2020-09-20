@@ -8,9 +8,23 @@ const storeMovies = (moviesData) => {
   }
 }
 
-export const moviesRequest = (config) => {
+const storeSelectedMovie = (movie) => {
+  return {
+    type: actionTypes.FETCH_SELECTED_MOVIE_REQUEST,
+    movie
+  }
+}
+
+export const moviesRequest = () => {
   return (dispatch) => {
-    movieDB.getMovies(config)
+    movieDB.getMovies()
       .then(data => dispatch(storeMovies(data)));
+  }
+}
+
+export const selectedMovieRequest = (id) => {
+  return (dispatch) => {
+    movieDB.getMovie(id)
+      .then(movie => dispatch(storeSelectedMovie(movie)))
   }
 }
