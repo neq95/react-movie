@@ -12,7 +12,6 @@ function limitString(string) {
 }
 
 const MoviePreview = ({movie}) => {
-  console.log(movie);
   return (
     <div className="movie-preview">
       <div className="movie-preview__poster">

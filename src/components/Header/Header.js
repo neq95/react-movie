@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import "./Header.css";
 import Search from "./Search/Search";
@@ -31,7 +31,9 @@ class Header extends React.Component {
       <header className="header">
         <Container className="header__container">
           <div className="header__logo">
-            <Logo />
+            <Link to="/">
+              <Logo />
+            </Link>
           </div>
           <div className="header__search">
             <Search />

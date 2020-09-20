@@ -10,6 +10,10 @@ import reducer from "./store/reducers/reducer";
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
+//Реализовать контекст, app.js будет получать размер экрана и через контекст передавать его в 
+//moviePreview и movieCard, а там будем показывать серый плейсхолдер вместо картинки, пока не получим
+//нужный размер
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>

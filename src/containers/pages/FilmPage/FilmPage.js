@@ -99,10 +99,10 @@ const movie = {
 }
 
 class FilmPage extends React.Component {
-  // componentDidMount() {
-  //  let id = this.props.location.pathname.match(/\d+?$/)[0];
-  //  console.log(id);
-  // }
+  componentDidMount() {
+   let id = this.props.location.pathname.match(/\d+?$/)[0];
+   console.log(id);
+  }
 
   render() {
     return (

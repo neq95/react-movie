@@ -8,23 +8,9 @@ import ItemsGrid from "../../../components/ItemsGrid/ItemsGrid";
 
 class HomePage extends React.Component {
   componentDidMount() {
-    let width = this.getWidth();
-
     this.props.moviesRequest({
-      image: {type: "poster", width}
+      image: {type: "poster", width: this.props.width}
     });
-  }
-
-  getWidth() {
-    let viewportWidth = document.documentElement.clientWidth;
-    
-    if(viewportWidth < 600) {
-      return "small";
-    } else if(viewportWidth < 900) {
-      return "medium";
-    } else {
-      return "big";
-    }
   }
 
   render() {
