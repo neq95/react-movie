@@ -6,7 +6,6 @@ const MovieCard = (props) => {
   console.log(props.movie);
   return (
     <div className="movie-card">
-      <div className="movie-card__backdrop"></div>
       <article className="movie-card__card card">
         <div className="card__wrapper">
           <section className="card__info">
@@ -14,12 +13,20 @@ const MovieCard = (props) => {
               <img src="https://image.tmdb.org/t/p/w92/h4VB6m0RwcicVEZvzftYZyKXs6K.jpg" alt="poster"/>
             </div>
             <div className="card__header">
-              <div className="card__rating">7.2</div>
+              <div className="card__extra">
+                <div className="card__rating">7.2</div>
+                <div className="card__add--mobile card-add">
+                  <i className="card-add__icon fas fa-plus"></i>
+                  <span className="card-add__text">Want</span>
+                </div>
+              </div>
               <h1 className="card__title">{props.movie.title}</h1>
               <div className="card__duration">
                 {Math.floor(props.movie.runtime / 60)}h {props.movie.runtime % 60}min
               </div>
+              <p className="card__description--desktop">{props.movie.overview}</p>
             </div>
+            <button className="card__add--desktop">Add to Watchlist</button>
           </section>
           <p className="card__description">{props.movie.overview}</p>
           <h3 className="card__cast-title">CAST</h3>

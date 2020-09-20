@@ -1,6 +1,6 @@
-.movie-card__backdrop {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), 
-  url("https://image.tmdb.org/t/p/w300/9xNOiv6DZZjH7ABoUUDP0ZynouU.jpg") no-repeat center / cover;
+.movie-card {
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 .card {
@@ -19,6 +19,15 @@
   column-gap: 15px;
 }
 
+.card__add--desktop {
+  display: none;
+}
+
+.card__extra {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card__rating {
   display: flex;
   padding: 5px 5px;
@@ -30,6 +39,27 @@
   font-size: 1.2rem;
   justify-content: center;
   align-items: center;
+}
+
+.card__add--mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-add__icon {
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--main-dark);
+}
+
+.card-add__icon:hover {
+  color: var(--main-light);
+}
+
+.card-add__text {
+  font-size: 1.2rem;
+  color: var(--background-main);
 }
 
 .card__title {
@@ -47,6 +77,10 @@
 .card__description {
   margin-top: 20px;
   font-size: 1.4rem;
+}
+
+.card__description--desktop {
+  display: none;
 }
 
 .card__cast-title {
@@ -79,4 +113,126 @@
 
 .actor__name {
   text-align: center;
+}
+
+@media(min-width: 600px) {
+  .movie-card {
+    max-width: 750px;
+  }
+
+  .card__wrapper {
+    padding: 25px 25px 0 25px;
+  }
+
+  .card__info {
+    grid-template-columns: 170px 1fr;
+  }
+
+  .card__rating {
+    padding: 10px 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+
+  .card-add__icon {
+    font-size: 2.4rem;
+  }
+
+  .card-add__text {
+    font-size: 1.4rem;
+  }
+
+  .card__title {
+    font-size: 2rem;
+    margin-top: 25px;
+  }
+
+  .card__duration {
+    font-size: 1.4rem;
+  }
+
+  .card__description {
+    margin-top: 20px;
+    font-size: 1.6rem;
+  }
+
+  .card__cast-title {
+    margin-top: 30px;
+    font-size: 1.8rem;
+  }
+
+  .cast__actors {
+    padding: 25px;
+  }
+
+  .actor__profile {
+    width: 80px;
+    height: 80px;
+    background: url("https://image.tmdb.org/t/p/w185/aEmyadfRXTmmR7UW7OXsm5a6smS.jpg") no-repeat center / cover;
+  }
+
+  .cast__actor {
+    max-width: 80px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .movie-card {
+    max-width: 950px;
+  }
+
+  .card__add--mobile {
+    display: none;
+  }
+
+  .card__info {
+    grid-template-columns: 200px 450px 1fr;
+    column-gap: 35px;
+  }
+
+  .card__description--desktop {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .card__title {
+    font-size: 2.2rem;
+    margin-top: 25px;
+  }
+
+  .card__description {
+    display: none;
+  }
+
+  .cast__actor {
+    max-width: 100px;
+  }
+
+  .actor__profile {
+    width: 100px;
+    height: 100px;
+    background: url("https://image.tmdb.org/t/p/w185/aEmyadfRXTmmR7UW7OXsm5a6smS.jpg") no-repeat center / cover;
+  }
+
+  .actor__name {
+    margin-top: 10px;
+  }
+
+  .card__add--desktop {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    color: var(--white);
+    background-color: var(--main-medium);
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.6rem;
+  }
+
+  .card__add--desktop:hover {
+    background-color: var(--background-second);
+  }
 }

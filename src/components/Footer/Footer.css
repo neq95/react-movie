@@ -1,5 +1,6 @@
 .footer {
   background-color: var(--background-darkest);
+  margin-top: auto;
 }
 
 .footer__container {
