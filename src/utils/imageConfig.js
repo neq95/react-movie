@@ -10,5 +10,10 @@ export const dimensions = {
     small: "w300",
     medium: "w780",
     big: "w1280"
+  },
+  profile: {
+    small: "w45",
+    medium: "w185",
+    big: "w185"
   }
 };

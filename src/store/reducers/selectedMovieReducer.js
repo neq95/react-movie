@@ -1,7 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  movie: null
+  movie: null,
+  actors: []
 }
 
 const selectedMovieReducer = (state = initialState, action) => {
@@ -16,6 +17,12 @@ const selectedMovieReducer = (state = initialState, action) => {
       return {
         ...state,
         movie: null
+      }
+
+    case actionTypes.FETCH_ACTORS_REQUEST:
+      return {
+        ...state,
+        actors: action.actors
       }
 
     default:

@@ -11,6 +11,7 @@ class FilmPage extends React.Component {
   componentDidMount() {
     let id = this.props.location.pathname.match(/\d+?$/)[0];
     this.props.selectedMovieRequest(id);
+    this.props.actorsRequest(id);
   }
 
   componentWillUnmount() {
@@ -22,7 +23,13 @@ class FilmPage extends React.Component {
       <main className="film-page">
         <Container className="film-page__container">
           <WidthConsumer>
-            {(width) => <MovieCard width={width} movie={this.props.selectedMovie} />}
+            {(width) => {
+              return <MovieCard 
+                width={width} 
+                actors={this.props.actors} 
+                movie={this.props.selectedMovie} 
+              />
+            }}
           </WidthConsumer>
         </Container>
       </main>
@@ -32,14 +39,16 @@ class FilmPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    selectedMovie: state.selectedMovie.movie
+    selectedMovie: state.selectedMovie.movie,
+    actors: state.selectedMovie.actors
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     selectedMovieRequest: (id) => dispatch(actions.selectedMovieRequest(id)),
-    removeSelectedMovie: () => dispatch(actions.removeSelectedMovie())
+    removeSelectedMovie: () => dispatch(actions.removeSelectedMovie()),
+    actorsRequest: (id) => dispatch(actions.actorsRequest(id))
   };
 }
 

@@ -4,7 +4,8 @@ import "./MovieCard.css";
 import Spinner from "../UI/Spinner/Spinner";
 import * as imageConfig from "../../utils/imageConfig"
 
-const MovieCard = ({movie, width}) => {
+const MovieCard = ({movie, width, actors}) => {
+  console.log(actors);
   if(!movie) {
     return <Spinner />
   }
@@ -14,6 +15,39 @@ const MovieCard = ({movie, width}) => {
   if(width) {
     let posterSrc = imageConfig.imagePath + imageConfig.dimensions.poster[width] + movie.poster;
     poster = <img src={posterSrc} alt="poster"/>
+  }
+
+  let renderedActors;
+
+  if(Object.keys(actors).length === 0) {
+    renderedActors = [];
+    for(let i = 0; i < 4; i++) {
+      renderedActors.push(
+        <div key={i + 1} className="cast__actor actor">
+          <div className="actor-skeleton__profile"></div>
+          <p className="actor-skeleton__name"></p>
+          <p className="actor-skeleton__character"></p>
+        </div>
+      )
+    }
+  } else {
+    renderedActors = actors.map(actor => {
+      let imagePath = imageConfig.imagePath + 
+        imageConfig.dimensions.profile[width] + 
+        actor.profileImage;
+
+      let profileStyle = {
+        background: `url(${imagePath}) no-repeat center / cover`,
+      }
+
+      return (
+        <div key={actor.id} className="cast__actor actor">
+          <div className="actor__profile" style={profileStyle}></div>
+          <p className="actor__name">{actor.name}</p>
+          <p className="actor__character-name">{actor.character}</p>
+        </div>
+      )
+    })
   }
     
 
@@ -46,11 +80,12 @@ const MovieCard = ({movie, width}) => {
         </div>
         <section className="card__cast cast">
           <div className="cast__actors">
-            <div className="cast__actor actor">
+            {/* <div className="cast__actor actor">
               <div className="actor__profile"></div>
-              <p className="actor__name">Rosie Perez</p>
+              <p className="actor__name"></p>
               <p className="actor__character-name">Huan Carlos</p>
-            </div>
+            </div> */}
+            {renderedActors}
           </div>
         </section>
       </article>

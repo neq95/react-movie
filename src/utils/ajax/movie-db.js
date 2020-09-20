@@ -113,7 +113,8 @@ class MovieDB {
       return {
         name: actor.name,
         character: actor.character,
-        profileImage: actor.profile_path
+        profileImage: actor.profile_path,
+        id: actor.id
       }
     })
 
