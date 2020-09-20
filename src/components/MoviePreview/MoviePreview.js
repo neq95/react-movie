@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 import "./MoviePreview.css";
+import * as imageConfig from "../../utils/imageConfig"
 
 function limitString(string) {
   if(string.length > 30) {
@@ -11,13 +12,14 @@ function limitString(string) {
   return string;
 }
 
-const MoviePreview = ({movie}) => {
+const MoviePreview = ({movie, width}) => {
+  let posterSrc = imageConfig.imagePath + imageConfig.dimensions.poster[width] + movie.poster;
   return (
     <div className="movie-preview">
       <div className="movie-preview__poster">
         <Link to={`/film/${movie.id}`}>
           <img 
-            src={movie.poster}
+            src={posterSrc}
             alt="poster" 
             className="movie-preview__poster-image"
           />

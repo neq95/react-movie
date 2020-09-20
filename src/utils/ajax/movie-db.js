@@ -1,21 +1,7 @@
 class MovieDB {
   #baseURL = "https://api.themoviedb.org/3/";
-  #imagesPosterURL = "https://image.tmdb.org/t/p/";
-  #imagesBackdropURL = "https://image.tmdb.org/t/p/w1280";
   #apiKey = "04c35731a5ee918f014970082a0088b1";
   #genres = {};
-  #imageConfiguration = {
-    poster: {
-      small: "w92",
-      medium: "w154",
-      big: "w185"
-    },
-    backdrop: {
-      small: "w300",
-      medium: "w780",
-      big: "w1280"
-    }
-  };
 
   async _checkGenres() {
     if(Object.keys(this.#genres).length === 0) {
@@ -46,10 +32,7 @@ class MovieDB {
     data.genres.map(genre => this.#genres[genre.id] = genre.name);
   }
 
-  getMovies = async(config) => {
-    let {type, width} = config.image;
-    let imageSize = this.#imageConfiguration[type][width];
-
+  getMovies = async() => {
     //Fetch 1 time and then just check, if it exist
     await this._checkGenres();
 
@@ -74,8 +57,8 @@ class MovieDB {
       let genres = movie.genre_ids.map(genreId => this.#genres[genreId]);
       return {
         id: movie.id,
-        backdrop: this.#imagesBackdropURL + movie.backdrop_path,
-        poster: this.#imagesPosterURL + imageSize + movie.poster_path,
+        backdrop: movie.backdrop_path,
+        poster: movie.poster_path,
         genres,
         title: movie.title || movie.original_title,
         rating: movie.vote_average

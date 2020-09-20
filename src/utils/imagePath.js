@@ -1,1 +1,0 @@
-const poster = "https://image.tmdb.org/t/p/";
