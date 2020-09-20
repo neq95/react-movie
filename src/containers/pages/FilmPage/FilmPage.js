@@ -10,7 +10,11 @@ import {WidthConsumer} from "../../../utils/Context/width-context";
 class FilmPage extends React.Component {
   componentDidMount() {
     let id = this.props.location.pathname.match(/\d+?$/)[0];
-    this.props.selectedMovieRequest(id)
+    this.props.selectedMovieRequest(id);
+  }
+
+  componentWillUnmount() {
+    this.props.removeSelectedMovie();
   }
 
   render() {
@@ -34,7 +38,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    selectedMovieRequest: (id) => dispatch(actions.selectedMovieRequest(id))
+    selectedMovieRequest: (id) => dispatch(actions.selectedMovieRequest(id)),
+    removeSelectedMovie: () => dispatch(actions.removeSelectedMovie())
   };
 }
 

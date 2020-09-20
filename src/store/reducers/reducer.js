@@ -21,6 +21,12 @@ const reducer = (state = initialState, action) => {
         selectedMovie: action.movie
       }
 
+    case actionTypes.REMOVE_SELECTED_MOVIE:
+      return {
+        ...state,
+        selectedMovie: null
+      }
+
     default:
       return state;
   }

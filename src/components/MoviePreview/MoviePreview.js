@@ -27,7 +27,7 @@ const MoviePreview = ({movie, width}) => {
         <div className="movie-preview__rating">{movie.rating || 6.0}</div>
       </div>
       <div className="movie-preview__info">
-        <Link to="/film">
+        <Link to={`/film/${movie.id}`} >
           <h3 className="movie-preview__title">{limitString(movie.title)}</h3>
         </Link>
         <div className="movie-preview__genres">

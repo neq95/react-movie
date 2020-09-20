@@ -27,7 +27,7 @@ const MovieCard = ({movie, width}) => {
             </div>
             <div className="card__header">
               <div className="card__extra">
-                <div className="card__rating">{movie.rating}</div>
+                <div className="card__rating">{movie.rating || 6}</div>
                 <div className="card__add--mobile card-add">
                   <i className="card-add__icon fas fa-plus"></i>
                   <span className="card-add__text">Want</span>
@@ -47,13 +47,7 @@ const MovieCard = ({movie, width}) => {
         <section className="card__cast cast">
           <div className="cast__actors">
             <div className="cast__actor actor">
-              <div className="actor__profile">
-                {/* <img 
-                  className="actor__profile-image"
-                  src="https://image.tmdb.org/t/p/w45/aEmyadfRXTmmR7UW7OXsm5a6smS.jpg" 
-                  alt="dasdf"
-                /> */}
-              </div>
+              <div className="actor__profile"></div>
               <p className="actor__name">Rosie Perez</p>
             </div>
           </div>

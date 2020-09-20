@@ -15,6 +15,12 @@ const storeSelectedMovie = (movie) => {
   }
 }
 
+export const removeSelectedMovie = () => {
+  return {
+    type: actionTypes.REMOVE_SELECTED_MOVIE
+  }
+}
+
 export const moviesRequest = () => {
   return (dispatch) => {
     movieDB.getMovies()
