@@ -89,6 +89,7 @@ class MovieDB {
         if(!response.ok) throw new Error();
         return response.json();
       })
+
     let genres = data.genres.map(genre => genre.name);
     let duration = data.runtime;
 
@@ -98,6 +99,26 @@ class MovieDB {
       duration
     };
   }
+
+  getActors = async(id) => {
+    let url = this._makeURL(`movie/${id}/credits`);
+
+    let data = await fetch(url)
+      .then(response => {
+        if(!response.ok) throw new Error();
+        return response.json();
+      })
+    
+    let transformedActors = data.cast.map(actor => {
+      return {
+        name: actor.name,
+        character: actor.character,
+        profileImage: actor.profile_path
+      }
+    })
+
+    return transformedActors;
+  } 
 }
 
 const movieDB = new MovieDB();

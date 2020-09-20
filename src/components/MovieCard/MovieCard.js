@@ -49,6 +49,7 @@ const MovieCard = ({movie, width}) => {
             <div className="cast__actor actor">
               <div className="actor__profile"></div>
               <p className="actor__name">Rosie Perez</p>
+              <p className="actor__character-name">Huan Carlos</p>
             </div>
           </div>
         </section>

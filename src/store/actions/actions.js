@@ -15,6 +15,13 @@ const storeSelectedMovie = (movie) => {
   }
 }
 
+const storeActors = (actors) => {
+  return {
+    type: actionTypes.FETCH_ACTORS_REQUEST,
+    actors
+  }
+}
+
 export const removeSelectedMovie = () => {
   return {
     type: actionTypes.REMOVE_SELECTED_MOVIE
@@ -31,6 +38,13 @@ export const moviesRequest = () => {
 export const selectedMovieRequest = (id) => {
   return (dispatch) => {
     movieDB.getMovie(id)
-      .then(movie => dispatch(storeSelectedMovie(movie)))
+      .then(movie => dispatch(storeSelectedMovie(movie)));
+  }
+}
+
+export const actorsRequest = (id) => {
+  return (dispatch) => {
+    movieDB.getActors(id)
+      .then(actors => dispatch(storeActors(actors)));
   }
 }

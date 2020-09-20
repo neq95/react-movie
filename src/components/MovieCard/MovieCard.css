@@ -119,6 +119,15 @@
 
 .actor__name {
   text-align: center;
+  font-size: 1.4rem;
+  margin-top: 5px;
+}
+
+.actor__character-name {
+  font-size: 1.2rem;
+  color: var(--light-gray);
+  margin-top: 7px;
+  text-align: center;
 }
 
 @media(min-width: 600px) {
@@ -185,6 +194,16 @@
 
   .cast__actor {
     max-width: 80px;
+  }
+
+  .actor__name {
+    font-size: 1.6rem;
+    margin-top: 10px;
+  }
+  
+  .actor__character-name {
+    font-size: 1.4rem;
+    margin-top: 10px;
   }
 }
 

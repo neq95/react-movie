@@ -32,7 +32,7 @@ class FilmPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    selectedMovie: state.selectedMovie
+    selectedMovie: state.selectedMovie.movie
   };
 }
 
