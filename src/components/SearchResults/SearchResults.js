@@ -2,6 +2,7 @@ import React from "react";
 
 import "./SearchResults.css";
 import SearchResult from "./SearchResult/SearchResult";
+import {WidthConsumer} from "../../utils/Context/width-context";
 
 let result = {
   "popularity": 128.348,
@@ -27,7 +28,9 @@ let result = {
 const SearchResults = () => {
   return (
     <div className="search-results">
-      <SearchResult result={result} />
+      <WidthConsumer>
+        {(width) => <SearchResult width={width} result={result} />}
+      </WidthConsumer>
     </div>
   )
 }
