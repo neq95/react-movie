@@ -1,5 +1,5 @@
 import React from "react";
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route, withRouter} from "react-router-dom";
 
 import "./App.css";
 import Header from "../../components/Header/Header";
@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import Footer from "../../components/Footer/Footer";
 import FilmPage from "../pages/FilmPage/FilmPage";
 import {WidthProvider} from "../../utils/Context/width-context";
+import SearchPage from "../pages/SeacrhPage/SearchPage";
 
 class App extends React.Component {
   state = {
@@ -41,6 +42,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="app">
         <Header />
@@ -49,6 +51,7 @@ class App extends React.Component {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/film" component={FilmPage} />
+            <Route path="/search" component={SearchPage} />
           </Switch>
         </WidthProvider>
         <Footer />
@@ -57,4 +60,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);

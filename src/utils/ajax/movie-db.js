@@ -92,11 +92,13 @@ class MovieDB {
 
     let genres = data.genres.map(genre => genre.name);
     let duration = data.runtime;
+    let release = data.release_date;
 
     return {
       ...this._transformMovie(data),
       genres,
-      duration
+      duration,
+      release
     };
   }
 
