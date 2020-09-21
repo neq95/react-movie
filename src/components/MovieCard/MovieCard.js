@@ -79,11 +79,6 @@ const MovieCard = ({movie, width, actors}) => {
         </div>
         <section className="card__cast cast">
           <div className="cast__actors">
-            {/* <div className="cast__actor actor">
-              <div className="actor__profile"></div>
-              <p className="actor__name"></p>
-              <p className="actor__character-name">Huan Carlos</p>
-            </div> */}
             {renderedActors}
           </div>
         </section>

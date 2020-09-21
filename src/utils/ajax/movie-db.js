@@ -147,7 +147,10 @@ class MovieDB {
       });
     
     let results = data.results.map(result => {
-      return this._transformMovie(result)
+      let transformedResult = this._transformMovie(result);
+      transformedResult.release = result.release_date;
+
+      return transformedResult;
     })
 
     return {

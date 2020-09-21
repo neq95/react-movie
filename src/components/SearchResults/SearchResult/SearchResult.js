@@ -12,21 +12,27 @@ function transformDate(date) {
 }
 
 const SearchResult = ({result, width}) => {
-  let releaseDate = transformDate(result.release_date);
+  let releaseDate = transformDate(result.release);
+
   let posterImage = null;
+  let posterStyle = null;
 
   if(width === "medium" || width === "big") {
     posterImage = <img 
       className="search-result__poster-image"
-      src={`https://image.tmdb.org/t/p/w92${result.poster_path}`} 
+      src={`https://image.tmdb.org/t/p/w92${result.poster}`}
       alt="poster"
-    />
+    />;
+  } else {
+    posterStyle = {
+      background: `url("https://image.tmdb.org/t/p/w92${result.poster}") no-repeat center / contain`
+    }
   }
 
   return (
     <article className="search-result">
       <div className="search-result__wrapper">
-        <section className="search-result__poster">
+        <section className="search-result__poster" style={posterStyle}>
           {posterImage}
         </section>
         <section className="search-result__description result-description">
@@ -36,7 +42,7 @@ const SearchResult = ({result, width}) => {
             </h3>
             <div className="result-description__rating result-rating">
               <i className="result-rating__icon fas fa-star"></i>
-              <span className="result-rating__text">{result.vote_average}</span>
+              <span className="result-rating__text">{result.rating}</span>
             </div>
           </div>
           <h4 className="result-description__release result-release">
@@ -46,13 +52,13 @@ const SearchResult = ({result, width}) => {
           </h4>
           <div className="result-description__overview--desktop">
             <p className="result-description__overview-text">
-              {result.overview}
+              {result.description}
             </p>
           </div>
         </section>
       </div>
       <p className="result-description__overview--mobile">
-        {result.overview}
+        {result.description}
       </p>
     </article>
   )
