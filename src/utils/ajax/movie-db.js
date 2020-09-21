@@ -108,6 +108,14 @@ class MovieDB {
         if(!response.ok) throw new Error();
         return response.json();
       })
+
+    
+    let actorsArray = data.cast;
+
+    //Limit actors count
+    if(actorsArray.length > 12) {
+      actorsArray.splice(12, actorsArray.length - 12);
+    }
     
     let transformedActors = data.cast.map(actor => {
       return {
@@ -116,7 +124,7 @@ class MovieDB {
         profileImage: actor.profile_path,
         id: actor.id
       }
-    })
+    }).filter(actor => actor.profileImage);
 
     return transformedActors;
   } 

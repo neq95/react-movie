@@ -102,7 +102,25 @@
   padding: 15px;
   border-radius: 0 0 10px 10px;
   display: flex;
-  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.cast__actors::-webkit-scrollbar {
+  width: 10px;
+}
+
+.cast__actors::-webkit-scrollbar-track {
+  background: var(--main-dark);
+  border-radius: 10px;
+}
+
+.cast__actors::-webkit-scrollbar-thumb {
+  background: var(--main-medium);
+  border-radius: 10px;
+}
+
+.cast__actors::-webkit-scrollbar-thumb:hover {
+  background: var(--main-light)
 }
 
 .cast__actor {
@@ -261,12 +279,12 @@
   }
 
   .cast__actor {
-    max-width: 100px;
+    max-width: 90px;
   }
 
   .actor__profile {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
   }
 
   .actor__name {
