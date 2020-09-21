@@ -20,6 +20,9 @@
   width: 70px;
   height: 80px;
   margin-right: 15px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg") 
+    no-repeat center / contain;
+  border-radius: 10px;
 }
 
 .result-description__title {

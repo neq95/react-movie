@@ -15,7 +15,7 @@ class Search extends React.Component {
     let searchValue = event.target.value;
     this.setState({searchValue});
 
-    this.timer = setTimeout(() => this.props.onSearch(searchValue), 2000);
+    this.timer = setTimeout(() => this.props.onSearch(searchValue), 300);
   }
 
   render() {

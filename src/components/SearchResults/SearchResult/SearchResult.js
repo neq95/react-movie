@@ -5,8 +5,8 @@ import "./SearchResult.css";
 function transformDate(date) {
   let transformedDate = new Date(date);
   return {
-    day: transformedDate.getDate(),
-    month: transformedDate.getMonth(),
+    day: String(transformedDate.getDate()).padStart(2, "0"),
+    month: String(transformedDate.getMonth() + 1).padStart(2, "0"),
     year: transformedDate.getFullYear()
   }
 }
@@ -17,15 +17,21 @@ const SearchResult = ({result, width}) => {
   let posterImage = null;
   let posterStyle = null;
 
-  if(width === "medium" || width === "big") {
-    posterImage = <img 
-      className="search-result__poster-image"
-      src={`https://image.tmdb.org/t/p/w92${result.poster}`}
-      alt="poster"
-    />;
-  } else {
-    posterStyle = {
-      background: `url("https://image.tmdb.org/t/p/w92${result.poster}") no-repeat center / contain`
+  if(result.poster !== null) {
+    if(width === "medium" || width === "big") {
+      posterImage = <img 
+        className="search-result__poster-image"
+        src={`https://image.tmdb.org/t/p/w92${result.poster}`}
+        alt="poster"
+      />;
+  
+      posterStyle = {
+        background: "none"
+      }
+    } else {
+      posterStyle = {
+        background: `url("https://image.tmdb.org/t/p/w92${result.poster}") no-repeat center / contain`
+      }
     }
   }
 
