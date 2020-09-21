@@ -3,19 +3,19 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   page: null,
   totalPages: null,
-  movies: []
+  results: []
 }
 
-const moviesReducer = (state = initialState, action) => {
+const searchReducer = (state = initialState, action) => {
   switch(action.type) {
-    case actionTypes.FETCH_MOVIES_REQUEST:
+    case actionTypes.FETCH_SEARCH_REQUEST:
       return {
-        ...action.moviesData
+        ...action.searchData
       }
-
+      
     default:
       return state;
   }
 }
 
-export default moviesReducer;
+export default searchReducer;

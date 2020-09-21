@@ -1,5 +1,6 @@
 import React from "react";
 import {Switch, Route, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
 import "./App.css";
 import Header from "../../components/Header/Header";
@@ -8,6 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import FilmPage from "../pages/FilmPage/FilmPage";
 import {WidthProvider} from "../../utils/Context/width-context";
 import SearchPage from "../pages/SeacrhPage/SearchPage";
+import * as actions from "../../store/actions/actions";
 
 class App extends React.Component {
   state = {
@@ -18,6 +20,11 @@ class App extends React.Component {
   componentDidMount() {
     window.addEventListener("resize", this._setWidth);
     this._setWidth();
+  }
+
+  onSearch = (searchValue) => {
+    this.props.history.push("/search");
+    this.props.searchRequest(searchValue);
   }
 
   _setWidth = () => {
@@ -42,10 +49,9 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="app">
-        <Header />
+        <Header onSearch={this.onSearch}/>
         {/* Use React Context to pass width to deep components */}
         <WidthProvider value={this.state.width}>
           <Switch>
@@ -60,4 +66,10 @@ class App extends React.Component {
   }
 }
 
-export default withRouter(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    searchRequest: (query) => dispatch(actions.searchRequest(query))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(App));

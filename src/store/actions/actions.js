@@ -17,16 +17,17 @@ const storeSelectedMovie = (movie, actors) => {
   }
 }
 
+const storeSearchData = (searchData) => {
+  return {
+    type: actionTypes.FETCH_SEARCH_REQUEST,
+    searchData
+  }
+}
+
 const actorsRequest = (id, movie) => {
   return (dispatch) => {
     movieDB.getActors(id)
       .then(actors => dispatch(storeSelectedMovie(movie, actors)));
-  }
-}
-
-export const removeSelectedMovie = () => {
-  return {
-    type: actionTypes.REMOVE_SELECTED_MOVIE
   }
 }
 
@@ -43,5 +44,18 @@ export const selectedMovieRequest = (id) => {
     movieDB.getMovie(id)
       .then(movie => dispatch(actorsRequest(id, movie)))
       //.then(movie => dispatch(storeSelectedMovie(movie)));
+  }
+}
+
+export const removeSelectedMovie = () => {
+  return {
+    type: actionTypes.REMOVE_SELECTED_MOVIE
+  }
+}
+
+export const searchRequest = (query) => {
+  return (dispatch) => {
+    movieDB.search(query)
+      .then(searchData => dispatch(storeSearchData(searchData)));
   }
 }

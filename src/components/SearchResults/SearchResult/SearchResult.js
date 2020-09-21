@@ -13,7 +13,6 @@ function transformDate(date) {
 
 const SearchResult = ({result, width}) => {
   let releaseDate = transformDate(result.release_date);
-  console.log(result);
   let posterImage = null;
 
   if(width === "medium" || width === "big") {

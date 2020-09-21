@@ -47,8 +47,7 @@ class MovieDB {
     //Fetch 1 time and then just check, if it exist
     await this._checkGenres();
 
-    let params = {
-      api_key: this.#apiKey,
+    const params = {
       language: "en-US",
       page: 1
     }
@@ -79,7 +78,7 @@ class MovieDB {
   }
 
   getMovie = async(id) => {
-    let params = {
+    const params = {
       language: "en-US"
     }
 
@@ -129,7 +128,34 @@ class MovieDB {
     }).filter(actor => actor.profileImage);
 
     return transformedActors;
-  } 
+  }
+
+  search = async(query) => {
+    const params = {
+      language: "en-US",
+      page: 1,
+      query,
+      include_adult: false
+    }
+
+    const url = this._makeURL("search/movie", params)
+
+    let data = await fetch(url)
+      .then(response => {
+        if(!response.ok) throw new Error("can't get data from api");
+        return response.json();
+      });
+    
+    let results = data.results.map(result => {
+      return this._transformMovie(result)
+    })
+
+    return {
+      page: data.page,
+      totalPages: data.total_pages,
+      results
+    }
+  }
 }
 
 const movieDB = new MovieDB();
