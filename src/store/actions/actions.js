@@ -8,17 +8,19 @@ const storeMovies = (moviesData) => {
   }
 }
 
-const storeSelectedMovie = (movie) => {
+const storeSelectedMovie = (movie, actors) => {
   return {
     type: actionTypes.FETCH_SELECTED_MOVIE_REQUEST,
-    movie
+    payload: { 
+      movie, actors
+    }
   }
 }
 
-const storeActors = (actors) => {
-  return {
-    type: actionTypes.FETCH_ACTORS_REQUEST,
-    actors
+const actorsRequest = (id, movie) => {
+  return (dispatch) => {
+    movieDB.getActors(id)
+      .then(actors => dispatch(storeSelectedMovie(movie, actors)));
   }
 }
 
@@ -35,16 +37,11 @@ export const moviesRequest = () => {
   }
 }
 
+//Send 2 http requests with redux-thunk to update reducer only 1 time
 export const selectedMovieRequest = (id) => {
   return (dispatch) => {
     movieDB.getMovie(id)
-      .then(movie => dispatch(storeSelectedMovie(movie)));
-  }
-}
-
-export const actorsRequest = (id) => {
-  return (dispatch) => {
-    movieDB.getActors(id)
-      .then(actors => dispatch(storeActors(actors)));
+      .then(movie => dispatch(actorsRequest(id, movie)))
+      //.then(movie => dispatch(storeSelectedMovie(movie)));
   }
 }

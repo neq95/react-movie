@@ -11,7 +11,6 @@ class FilmPage extends React.Component {
   componentDidMount() {
     let id = this.props.location.pathname.match(/\d+?$/)[0];
     this.props.selectedMovieRequest(id);
-    this.props.actorsRequest(id);
   }
 
   componentWillUnmount() {
@@ -48,7 +47,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     selectedMovieRequest: (id) => dispatch(actions.selectedMovieRequest(id)),
     removeSelectedMovie: () => dispatch(actions.removeSelectedMovie()),
-    actorsRequest: (id) => dispatch(actions.actorsRequest(id))
   };
 }
 

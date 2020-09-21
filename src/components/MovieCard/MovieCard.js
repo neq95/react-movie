@@ -6,6 +6,7 @@ import * as imageConfig from "../../utils/imageConfig"
 
 const MovieCard = ({movie, width, actors}) => {
   console.log(actors);
+  console.log(movie);
   if(!movie) {
     return <Spinner />
   }
