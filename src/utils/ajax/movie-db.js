@@ -23,6 +23,7 @@ class MovieDB {
   //Get genres from api and store them in convenient form
   async _getGenres() {
     let url = this._makeURL("genre/movie/list");
+
     let data = await fetch(url)
       .then(response => {
         if(!response.ok) throw new Error("Can't get data from api");
@@ -52,7 +53,7 @@ class MovieDB {
       page: 1
     }
 
-    let url = this._makeURL("movie/popular/", params);
+    let url = this._makeURL("movie/popular", params);
 
     let data = await fetch(url)
       .then(response => {
