@@ -36,7 +36,7 @@ class Header extends React.Component {
             </Link>
           </div>
           <div className="header__search">
-            <Search onSearch={this.props.onSearch} />
+            <Search onSearchSubmit={this.props.onSearchSubmit} />
           </div>
           <nav className="header__nav nav">
             <ul className="nav__items">

@@ -156,6 +156,7 @@ class MovieDB {
     return {
       page: data.page,
       totalPages: data.total_pages,
+      totalResults: data.total_results,
       results
     }
   }

@@ -20,8 +20,8 @@ class App extends React.Component {
     this._setWidth();
   }
 
-  onSearch = (searchValue) => {
-    let query = encodeURI(searchValue);
+  onSearchSubmit = (value) => {
+    let query = encodeURI(value);
     this.props.history.push(`/search?query=${query}`);
   }
 
@@ -49,7 +49,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Header onSearch={this.onSearch}/>
+        <Header onSearchSubmit={this.onSearchSubmit}/>
         {/* Use React Context to pass width to deep components */}
         <WidthProvider value={this.state.width}>
           <Switch>

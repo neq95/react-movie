@@ -14,6 +14,14 @@ class SearchPage extends React.Component {
     this.props.searchRequest(query);
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.searchData === prevProps.searchData) {
+      let rawQuery = this.props.location.search.match(/\?query=(.*)$/)[1];
+      let query = decodeURI(rawQuery);
+      this.props.searchRequest(query);
+    }
+  }
+
   render() {
     return (
       <div className="search-page">

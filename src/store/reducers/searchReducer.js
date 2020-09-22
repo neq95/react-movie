@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   page: null,
   totalPages: null,
+  totalResults: null,
   results: []
 }
 

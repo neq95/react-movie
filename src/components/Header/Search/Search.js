@@ -7,20 +7,19 @@ class Search extends React.Component {
     searchValue: ""
   }
 
-  timer = null;
-
   onInputChange = (event) => {
-    clearTimeout(this.timer);
-
     let searchValue = event.target.value;
     this.setState({searchValue});
+  }
 
-    this.timer = setTimeout(() => this.props.onSearch(searchValue), 300);
+  onSubmit = (event) => {
+    event.preventDefault();
+    this.props.onSearchSubmit(this.state.searchValue);
   }
 
   render() {
     return (
-      <div className="search">
+      <form className="search" onSubmit={this.onSubmit}>
         <input 
           value={this.state.searchValue}
           onChange={this.onInputChange}
@@ -28,10 +27,10 @@ class Search extends React.Component {
           className="search__input" 
           placeholder="Search any movies"
         />
-        <button className="search__button">
+        <button type="submit" className="search__button">
           <i className="fas fa-search"></i>
         </button>
-      </div>
+      </form>
     )
   }
 }
