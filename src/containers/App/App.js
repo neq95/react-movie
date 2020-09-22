@@ -9,6 +9,7 @@ import FilmPage from "../pages/FilmPage/FilmPage";
 import {WidthProvider} from "../../utils/Context/width-context";
 import SearchPage from "../pages/SeacrhPage/SearchPage";
 import Error404 from "../../components/Error404/Error404";
+import NotMade from "../../components/NotMade/NotMade";
 
 class App extends React.Component {
   state = {
@@ -57,7 +58,8 @@ class App extends React.Component {
             <Route path="/" exact component={HomePage} />
             <Route path="/film" component={FilmPage} />
             <Route path="/search" component={SearchPage} />
-            <Route width={this.state.width} component={Error404} />
+            <Route path="/movies" render={() => <NotMade width={this.state.width} />} />
+            <Route component={Error404} />
           </Switch>
         </WidthProvider>
         <Footer />

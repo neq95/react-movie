@@ -1,0 +1,31 @@
+.not-made {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.not-made__description {
+  margin-bottom: 30px;
+}
+
+@media(min-width: 600px) {
+  .not-made {
+    max-width: 950px;
+    margin: 50px auto;
+  }
+
+  .not-made__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .not-made__description {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+}
+
+@media(min-width: 600px) {
+  .not-made__description {
+    font-size: 2rem;
+  }
+}
