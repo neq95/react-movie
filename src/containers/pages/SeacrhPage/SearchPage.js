@@ -22,6 +22,10 @@ class SearchPage extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearSearchData();
+  }
+
   render() {
     return (
       <div className="search-page">
@@ -41,7 +45,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    searchRequest: (query) => dispatch(actions.searchRequest(query))
+    searchRequest: (query) => dispatch(actions.searchRequest(query)),
+    clearSearchData: () => dispatch(actions.clearSearchData())
   }
 }
 

@@ -13,6 +13,11 @@ const searchReducer = (state = initialState, action) => {
       return {
         ...action.searchData
       }
+
+    case actionTypes.CLEAR_SEARCH_DATA:
+      return {
+        ...initialState
+      }
       
     default:
       return state;

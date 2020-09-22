@@ -59,3 +59,9 @@ export const searchRequest = (query) => {
       .then(searchData => dispatch(storeSearchData(searchData)));
   }
 }
+
+export const clearSearchData = () => {
+  return {
+    type: actionTypes.CLEAR_SEARCH_DATA
+  }
+}
