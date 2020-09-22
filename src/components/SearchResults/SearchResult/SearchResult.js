@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 import "./SearchResult.css";
 
@@ -38,14 +39,18 @@ const SearchResult = ({result, width}) => {
   return (
     <article className="search-result">
       <div className="search-result__wrapper">
-        <section className="search-result__poster" style={posterStyle}>
-          {posterImage}
-        </section>
+        <Link to={`film/${result.id}`}>
+          <section className="search-result__poster" style={posterStyle}>
+            {posterImage}
+          </section>
+        </Link>
         <section className="search-result__description result-description">
           <div className="result-description__header">
-            <h3 className="result-description__title">
-              {result.title}
-            </h3>
+            <Link to={`film/${result.id}`}>
+              <h3 className="result-description__title">
+                {result.title}
+              </h3>
+            </Link>
             <div className="result-description__rating result-rating">
               <i className="result-rating__icon fas fa-star"></i>
               <span className="result-rating__text">{result.rating}</span>
