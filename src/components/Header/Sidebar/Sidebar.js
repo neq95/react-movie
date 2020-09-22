@@ -5,19 +5,21 @@ import "./Sidebar.css";
 import Logo from "../../UI/Logo/Logo";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 
-const Sidebar = (props) => {
-  let sidebarClass = props.show ? "sidebar open" : "sidebar closed";
+const Sidebar = ({show, onSidebarLinkClick, onCloseSidebar}) => {
+  let sidebarClass = show ? "sidebar open" : "sidebar closed";
   return (
     <React.Fragment>
-      <Backdrop show={props.show} clicked={props.onCloseSidebar}/>
+      <Backdrop show={show} clicked={onCloseSidebar}/>
       <div className={sidebarClass}>
         <div className="sidebar__logo">
           <Logo />
         </div>
         <ul className="sidebar__links">
           <li className="sidebar__link-box">
-            <NavLink 
+            <NavLink
+              onClick={onSidebarLinkClick}
               to="/" 
+              exact
               className="sidebar__link"
               activeClassName="sidebar__link--active"
             >
@@ -26,7 +28,9 @@ const Sidebar = (props) => {
           </li>
           <li className="sidebar__link-box">
             <NavLink 
+              onClick={onSidebarLinkClick}
               to="/movies" 
+              exact
               className="sidebar__link"
               activeClassName="sidebar__link--active"
             >
@@ -35,16 +39,20 @@ const Sidebar = (props) => {
           </li>
           <li className="sidebar__link-box">
             <NavLink
-              to="/serials" 
+              onClick={onSidebarLinkClick}
+              to="/tv-shows"
+              exact
               className="sidebar__link"
               activeClassName="sidebar__link--active"
             >
-              Serials
+              TV Shows
             </NavLink>
           </li>
           <li className="sidebar__link-box">
             <NavLink 
-              to="/watchlist" 
+              onClick={onSidebarLinkClick}
+              to="/watchlist"
+              exact
               className="sidebar__link"
               activeClassName="sidebar__link--active"
             >
@@ -52,7 +60,7 @@ const Sidebar = (props) => {
             </NavLink>
           </li>
         </ul>
-        <button className="sidebar__close" onClick={props.onCloseSidebar}>
+        <button className="sidebar__close" onClick={onCloseSidebar}>
           <i className="fas fa-times"></i>
         </button>
       </div>

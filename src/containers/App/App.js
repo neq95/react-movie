@@ -59,6 +59,8 @@ class App extends React.Component {
             <Route path="/film" component={FilmPage} />
             <Route path="/search" component={SearchPage} />
             <Route path="/movies" render={() => <NotMade width={this.state.width} />} />
+            <Route path="/tv-shows" render={() => <NotMade width={this.state.width} />} />
+            <Route path="/watchlist" render={() => <NotMade width={this.state.width} />} />
             <Route component={Error404} />
           </Switch>
         </WidthProvider>

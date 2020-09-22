@@ -39,6 +39,11 @@ body {
   font-size: 1.6rem;
   color: var(--white);
   height: 100%;
+  overflow: auto;
+}
+
+body.open {
+  overflow: hidden;
 }
 
 .app {

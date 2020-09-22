@@ -42,14 +42,14 @@
   border-bottom: 1px solid var(--main-light);
 }
 
-.sidebar__link.active {
+.sidebar__link--active {
   color: var(--main-light);
   border-bottom: 1px solid var(--main-light);
 }
 
 .sidebar__close {
   position: absolute;
-  bottom: 20px;
+  bottom: 60px;
   left: 50%;
   background-color: transparent;
   border: 1px solid var(--main-dark);

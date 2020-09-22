@@ -14,6 +14,7 @@ class Header extends React.Component {
 
   toggleShowSidebar = () => {
     this.setState((state) => ({showSidebar: !state.showSidebar}));
+    document.body.classList.toggle("open");
   }
 
   onOpenSidebar = () => {
@@ -22,6 +23,10 @@ class Header extends React.Component {
 
   onCloseSidebar = () => {
     this.toggleShowSidebar();
+  }
+
+  onSidebarLinkClick = () => {
+    this.onCloseSidebar();
   }
 
   render() {
@@ -73,7 +78,10 @@ class Header extends React.Component {
               <i className="fas fa-bars"></i>
             </button>
           </div>
-          <Sidebar show={showSidebar} onCloseSidebar={this.onCloseSidebar}/>
+          <Sidebar 
+            show={showSidebar} 
+            onSidebarLinkClick={this.onSidebarLinkClick} 
+            onCloseSidebar={this.onCloseSidebar}/>
         </Container>
       </header>
     )
