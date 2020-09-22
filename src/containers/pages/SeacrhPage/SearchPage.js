@@ -8,12 +8,7 @@ import * as actions from "../../../store/actions/actions";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 
 class SearchPage extends React.Component {
-  state = {
-    loading: false
-  }
-
   componentDidMount() {
-    this.setState({loading: true});
     //get search params from url and dispatch request method
     let rawQuery = this.props.location.search.match(/\?query=(.*)$/)[1];
     let query = decodeURI(rawQuery);
@@ -33,12 +28,12 @@ class SearchPage extends React.Component {
   }
 
   render() {
-    let loading = this.state.loading;
+    let loading = this.props.searchData.loading;
     console.log(loading);
     return (
       <div className="search-page">
         <Container>
-          {loading ? <Spinner /> : <SearchResults searchData={this.props.searchData}/>}
+          {loading ? <Spinner /> : <SearchResults searchData={this.props.searchData.searchResults}/>}
         </Container>
       </div>
     )
@@ -47,14 +42,14 @@ class SearchPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    searchData: state.searchData
+    searchData: state.searchData,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     searchRequest: (query) => dispatch(actions.searchRequest(query)),
-    clearSearchData: () => dispatch(actions.clearSearchData())
+    clearSearchData: () => dispatch(actions.clearSearchData()),
   }
 }
 

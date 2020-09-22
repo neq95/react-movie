@@ -1,22 +1,33 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  page: null,
-  totalPages: null,
-  totalResults: null,
-  results: []
+  searchResults: {
+    page: null,
+    totalPages: null,
+    totalResults: null,
+    results: []
+  },
+  loading: false
 }
 
 const searchReducer = (state = initialState, action) => {
   switch(action.type) {
     case actionTypes.FETCH_SEARCH_REQUEST:
       return {
-        ...action.searchData
+        ...state,
+        loading: true
+      }
+
+    case actionTypes.FETCH_SEARCH_SUCCESS:
+      return {
+        searchResults: { ...action.searchData },
+        loading: false
       }
 
     case actionTypes.CLEAR_SEARCH_DATA:
       return {
-        ...initialState
+        ...state,
+        searchResults: { ...initialState }
       }
       
     default:

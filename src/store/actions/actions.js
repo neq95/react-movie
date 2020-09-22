@@ -17,10 +17,9 @@ const storeSelectedMovie = (movie, actors) => {
   }
 }
 
-const storeSearchData = (searchData) => {
+const searchLoading = () => {
   return {
     type: actionTypes.FETCH_SEARCH_REQUEST,
-    searchData
   }
 }
 
@@ -55,13 +54,21 @@ export const removeSelectedMovie = () => {
 
 export const searchRequest = (query) => {
   return (dispatch) => {
+    dispatch(searchLoading());
     movieDB.search(query)
-      .then(searchData => dispatch(storeSearchData(searchData)));
+      .then(searchData => dispatch(searchSuccess(searchData)));
   }
 }
 
 export const clearSearchData = () => {
   return {
     type: actionTypes.CLEAR_SEARCH_DATA
+  }
+}
+
+const searchSuccess = (searchData) => {
+  return {
+    type: actionTypes.FETCH_SEARCH_SUCCESS,
+    searchData
   }
 }
