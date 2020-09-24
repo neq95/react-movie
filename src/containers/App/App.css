@@ -48,6 +48,7 @@ body.open {
 
 .app {
   display: flex;
+  position: relative;
   flex-direction: column;
   background-color: var(--background-main);
 }

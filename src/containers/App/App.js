@@ -10,10 +10,12 @@ import {WidthProvider} from "../../utils/Context/width-context";
 import SearchPage from "../pages/SeacrhPage/SearchPage";
 import Error404 from "../../components/Error404/Error404";
 import NotMade from "../../components/NotMade/NotMade";
+import Popup from "../../components/UI/Popup/Popup";
 
 class App extends React.Component {
   state = {
-    width: ""
+    width: "",
+    showPopup: true
   }
 
   //when size is changed, get new size and change state if breakpoint is passed
@@ -21,13 +23,6 @@ class App extends React.Component {
     window.addEventListener("resize", this._setWidth);
     this._setWidth();
   }
-
-  // onSearchSubmit = (value) => {
-  //   this.props.setSearchValue(value);
-
-  //   let query = encodeURI(value);
-  //   this.props.history.push(`/search?query=${query}`);
-  // }
 
   _setWidth = () => {
     let oldwidth = this.state.width;
@@ -50,6 +45,10 @@ class App extends React.Component {
     }
   }
 
+  onPopupClose = () => {
+    this.setState({showPopup: false})
+  }
+
   render() {
     return (
       <div className="app">
@@ -67,6 +66,12 @@ class App extends React.Component {
           </Switch>
         </WidthProvider>
         <Footer />
+        <Popup show={this.state.showPopup} onPopupClose={this.onPopupClose}>
+          <p>
+            I didn't implement all conceived functionality yet. <br />
+            But this demo shows basic mastery of core technologies, such as React, Redux, etc.
+          </p>
+        </Popup>
       </div>
     )
   }
