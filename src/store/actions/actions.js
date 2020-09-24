@@ -23,6 +23,13 @@ const searchLoading = () => {
   }
 }
 
+const searchSuccess = (searchData) => {
+  return {
+    type: actionTypes.FETCH_SEARCH_SUCCESS,
+    searchData
+  }
+}
+
 const actorsRequest = (id, movie) => {
   return (dispatch) => {
     movieDB.getActors(id)
@@ -42,7 +49,6 @@ export const selectedMovieRequest = (id) => {
   return (dispatch) => {
     movieDB.getMovie(id)
       .then(movie => dispatch(actorsRequest(id, movie)))
-      //.then(movie => dispatch(storeSelectedMovie(movie)));
   }
 }
 
@@ -66,9 +72,9 @@ export const clearSearchData = () => {
   }
 }
 
-const searchSuccess = (searchData) => {
+export const setSearchValue = (searchValue) => {
   return {
-    type: actionTypes.FETCH_SEARCH_SUCCESS,
-    searchData
+    type: actionTypes.SET_SEARCH_VALUE,
+    searchValue
   }
 }

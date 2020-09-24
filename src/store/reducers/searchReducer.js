@@ -7,11 +7,18 @@ const initialState = {
     totalResults: null,
     results: []
   },
-  loading: false
+  loading: false,
+  searchValue: ""
 }
 
 const searchReducer = (state = initialState, action) => {
   switch(action.type) {
+    case actionTypes.SET_SEARCH_VALUE:
+      return {
+        ...state,
+        searchValue: action.searchValue
+      }
+
     case actionTypes.FETCH_SEARCH_REQUEST:
       return {
         ...state,
@@ -20,14 +27,14 @@ const searchReducer = (state = initialState, action) => {
 
     case actionTypes.FETCH_SEARCH_SUCCESS:
       return {
+        ...state,
         searchResults: { ...action.searchData },
         loading: false
       }
 
     case actionTypes.CLEAR_SEARCH_DATA:
       return {
-        ...state,
-        searchResults: { ...initialState }
+        ...initialState
       }
       
     default:

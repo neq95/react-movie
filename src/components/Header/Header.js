@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 
 import "./Header.css";
-import Search from "./Search/Search";
+import Search from "../../containers/Search/Search";
 import Sidebar from "./Sidebar/Sidebar";
 import Logo from "../UI/Logo/Logo";
 import Container from "../UI/Container/Container";
@@ -41,7 +41,7 @@ class Header extends React.Component {
             </Link>
           </div>
           <div className="header__search">
-            <Search onSearchSubmit={this.props.onSearchSubmit} />
+            <Search onSearchSubmit={this.props.onSearchSubmit} searchValue={this.props.searchValue} />
           </div>
           <nav className="header__nav nav">
             <ul className="nav__items">

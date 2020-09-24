@@ -9,17 +9,24 @@ import Spinner from "../../../components/UI/Spinner/Spinner";
 
 class SearchPage extends React.Component {
   componentDidMount() {
-    //get search params from url and dispatch request method
-    let rawQuery = this.props.location.search.match(/\?query=(.*)$/)[1];
-    let query = decodeURI(rawQuery);
-    this.props.searchRequest(query);
+    let searchValue = this.props.searchData.searchValue;
+
+    //If there is no search value in store, we opened this page via url
+    //Get query from url, store it and fetch data from api
+    if(!searchValue) {
+      let rawQuery = this.props.location.search.match(/\?query=(.*)$/)[1];
+      let query = decodeURI(rawQuery);
+      this.props.setSearchValue(query);
+
+      searchValue = query;
+    }
+
+    this.props.searchRequest(searchValue);
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.searchData === prevProps.searchData) {
-      let rawQuery = this.props.location.search.match(/\?query=(.*)$/)[1];
-      let query = decodeURI(rawQuery);
-      this.props.searchRequest(query);
+    if(this.props.searchData.searchValue !== prevProps.searchData.searchValue) {
+      this.props.searchRequest(this.props.searchData.searchValue);
     }
   }
 
@@ -29,7 +36,6 @@ class SearchPage extends React.Component {
 
   render() {
     let loading = this.props.searchData.loading;
-    console.log(loading);
     return (
       <div className="search-page">
         <Container>
@@ -50,6 +56,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     searchRequest: (query) => dispatch(actions.searchRequest(query)),
     clearSearchData: () => dispatch(actions.clearSearchData()),
+    setSearchValue: (searchValue) => dispatch(actions.setSearchValue(searchValue))
   }
 }
 

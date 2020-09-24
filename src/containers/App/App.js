@@ -22,10 +22,12 @@ class App extends React.Component {
     this._setWidth();
   }
 
-  onSearchSubmit = (value) => {
-    let query = encodeURI(value);
-    this.props.history.push(`/search?query=${query}`);
-  }
+  // onSearchSubmit = (value) => {
+  //   this.props.setSearchValue(value);
+
+  //   let query = encodeURI(value);
+  //   this.props.history.push(`/search?query=${query}`);
+  // }
 
   _setWidth = () => {
     let oldwidth = this.state.width;
@@ -51,7 +53,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Header onSearchSubmit={this.onSearchSubmit}/>
+        <Header onSearchSubmit={this.onSearchSubmit} searchValue={this.props.searchValue} />
         {/* Use React Context to pass width to deep components */}
         <WidthProvider value={this.state.width}>
           <Switch>
@@ -69,5 +71,17 @@ class App extends React.Component {
     )
   }
 }
+
+// const mapStateToProps = (state) => {
+//   return {
+//     searchValue: state.searchData.searchValue
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     setSearchValue: (searchValue) => dispatch(actions.setSearchValue(searchValue))
+//   }
+// }
 
 export default withRouter(App);
