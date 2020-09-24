@@ -37,7 +37,7 @@ const Sidebar = ({show, onSidebarLinkClick, onCloseSidebar}) => {
               Movies
             </NavLink>
           </li>
-          <li className="sidebar__link-box">
+          {/* <li className="sidebar__link-box">
             <NavLink
               onClick={onSidebarLinkClick}
               to="/tv-shows"
@@ -58,7 +58,7 @@ const Sidebar = ({show, onSidebarLinkClick, onCloseSidebar}) => {
             >
               Watchlist
             </NavLink>
-          </li>
+          </li> */}
         </ul>
         <button className="sidebar__close" onClick={onCloseSidebar}>
           <i className="fas fa-times"></i>

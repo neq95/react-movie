@@ -75,12 +75,12 @@
   }
 
   .header__search {
-    flex: 1 1 35%;
+    flex: 1 1 60%;
   }
 
   .header__nav {
     display: block;
-    flex: 1 1 35%;
+    flex: 1 1 10%;
     margin-left: 3%;
     height: 100%;
   }

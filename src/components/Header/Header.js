@@ -50,7 +50,7 @@ class Header extends React.Component {
                   Movies
                 </NavLink>
               </li>
-              <li className="nav__item">
+              {/* <li className="nav__item">
                 <NavLink to="/tv-shows" className="nav__link">
                   TV Shows
                 </NavLink>
@@ -59,7 +59,7 @@ class Header extends React.Component {
                 <NavLink to="/watchlist" className="nav__link">
                   Watchlist
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </nav>
           <div className="header__profile profile">

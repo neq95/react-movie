@@ -1,5 +1,5 @@
 import React from "react";
-import {Switch, Route, withRouter} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 
 import "./App.css";
 import Header from "../../components/Header/Header";
@@ -60,8 +60,8 @@ class App extends React.Component {
             <Route path="/film" component={FilmPage} />
             <Route path="/search" component={SearchPage} />
             <Route path="/movies" render={() => <NotMade width={this.state.width} />} />
-            <Route path="/tv-shows" render={() => <NotMade width={this.state.width} />} />
-            <Route path="/watchlist" render={() => <NotMade width={this.state.width} />} />
+            {/* <Route path="/tv-shows" render={() => <NotMade width={this.state.width} />} /> */}
+            {/* <Route path="/watchlist" render={() => <NotMade width={this.state.width} />} /> */}
             <Route component={Error404} />
           </Switch>
         </WidthProvider>
@@ -77,16 +77,4 @@ class App extends React.Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     searchValue: state.searchData.searchValue
-//   }
-// }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     setSearchValue: (searchValue) => dispatch(actions.setSearchValue(searchValue))
-//   }
-// }
-
-export default withRouter(App);
+export default App;
