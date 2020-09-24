@@ -4,13 +4,13 @@ import {Link} from "react-router-dom";
 import "./MoviePreview.css";
 import * as imageConfig from "../../utils/imageConfig"
 
-function limitString(string) {
-  if(string.length > 30) {
-    string = string.substring(0, 29) + "..."
-  }
+// function limitString(string) {
+//   if(string.length > 30) {
+//     string = string.substring(0, 29) + "..."
+//   }
 
-  return string;
-}
+//   return string;
+// }
 
 const MoviePreview = ({movie, width}) => {
   let posterSrc = imageConfig.imagePath + imageConfig.dimensions.poster[width] + movie.poster;
@@ -28,7 +28,7 @@ const MoviePreview = ({movie, width}) => {
       </div>
       <div className="movie-preview__info">
         <Link to={`/film/${movie.id}`} >
-          <h3 className="movie-preview__title">{limitString(movie.title)}</h3>
+          <h3 className="movie-preview__title">{movie.title}</h3>
         </Link>
         <div className="movie-preview__genres">
           {movie.genres.map(genre => genre).join(", ")}
