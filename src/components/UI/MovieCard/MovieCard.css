@@ -14,7 +14,9 @@
   display: flex;
 }
 
-.movie-card__image {
+.movie-card__poster {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg") 
+    no-repeat center / contain;
   flex: 0 0 80px;
   width: 70px;
   height: 110px;
@@ -22,7 +24,42 @@
   overflow: hidden;
 }
 
-.movie-card__overview-mobile {
+.movie-card__poster-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.movie-card__description {
+  width: 100%;
+}
+
+.card-description__title {
+  font-weight: 500;
+  color: var(--main-medium);
+}
+
+.card-description__rating {
+  margin-top: 10px;
+}
+
+.card-rating__icon {
+  color: var(--yellow);
+  margin-right: 5px;
+}
+
+.card-description__release {
+  margin-top: 15px;
+  font-weight: 400;
+  color: var(--light-gray);
+}
+
+.card-description__overview--desktop {
+  display: none;
+}
+
+.card-description__overview--mobile {
   margin-top: 10px;
 }
 
@@ -32,13 +69,32 @@
     padding: 15px;
   }
 
-  .movie-card__image {
+  .movie-card__poster {
     flex: 0 0 92px;
     width: auto;
     height: auto;
   }
 
-  .movie-card__overview-mobile {
+  .movie-description__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-description__title {
+    font-size: 1.8rem;
+  }
+
+  .card-description__overview--desktop {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .card-description__rating {
+    margin-top: 0;
+  }
+
+  .card-description__overview--mobile {
     display: none;
   }
 }
@@ -49,11 +105,30 @@
     border-radius: 13px 10px 10px 13px;
   }
 
-  .movie-card__image {
-    border-radius: 10px 0 0 10px;
+  .card-description {
+    padding: 10px 15px;
   }
 
-  .movie-card__overview {
-    padding: 10px 15px 15px 0;
+  .movie-card__poster-image {
+    height: 100%;
+    width: 100%;
+    border-radius: 0 0 0 4px;
+  }
+
+  .movie-card__poster {
+    border-radius: 10px 0 0 10px;
+    margin-right: 0;
+  }
+
+  .card-description__title {
+    font-size: 2rem;
+  }
+
+  .card-description__overview-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
   }
 }

@@ -1,0 +1,17 @@
+.search-result {
+  margin-bottom: 30px;
+}
+
+@media(min-width: 600px) {
+  .search-result {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media(min-width: 900px) {
+  .search-result {
+    max-width: 950px;
+  }
+}

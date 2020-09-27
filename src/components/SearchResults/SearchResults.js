@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./SearchResults.css";
-import SearchResult from "./SearchResult/SearchResult";
+import MovieCard from "../UI/MovieCard/MovieCard";
 
 const SearchResults = ({ searchData }) => {
   if (searchData.totalResults === 0) {
@@ -14,7 +14,11 @@ const SearchResults = ({ searchData }) => {
 
   let results = searchData.results;
   let renderedResults = results.map((result) => {
-    return <SearchResult key={result.id} result={result} />;
+    return (
+      <div className="search-result" key={result.id}>
+        <MovieCard result={result} />
+      </div>
+    );
   });
 
   return <div className="search-results">{renderedResults}</div>;
