@@ -1,43 +1,47 @@
 import React from "react";
 
-import "./MovieCard.css";
+import "./MovieDetails.css";
 import Spinner from "../UI/Spinner/Spinner";
-import * as imageConfig from "../../utils/imageConfig"
+import * as imageConfig from "../../utils/imageConfig";
 
-const MovieCard = ({movie, width, actors}) => {
-  if(!movie) {
-    return <Spinner />
+const MovieDetails = ({ movie, width, actors }) => {
+  if (!movie) {
+    return <Spinner />;
   }
 
   let poster = <div className="poster__skeleton"></div>;
 
-  if(width) {
-    let posterSrc = imageConfig.imagePath + imageConfig.dimensions.poster[width] + movie.poster;
-    poster = <img src={posterSrc} alt="poster"/>
+  if (width) {
+    let posterSrc =
+      imageConfig.imagePath +
+      imageConfig.dimensions.poster[width] +
+      movie.poster;
+    poster = <img src={posterSrc} alt="poster" />;
   }
 
   let renderedActors;
 
-  if(Object.keys(actors).length === 0) {
+  if (Object.keys(actors).length === 0) {
     renderedActors = [];
-    for(let i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
       renderedActors.push(
         <div key={i + 1} className="cast__actor actor">
           <div className="actor-skeleton__profile"></div>
           <p className="actor-skeleton__name"></p>
           <p className="actor-skeleton__character"></p>
         </div>
-      )
+      );
     }
   } else {
-    renderedActors = actors.map(actor => {
-      let imagePath = imageConfig.imagePath + 
-        imageConfig.dimensions.profile[width] + 
+    renderedActors = actors.map((actor) => {
+      let imagePath =
+        imageConfig.imagePath +
+        imageConfig.dimensions.profile[width] +
         actor.profileImage;
 
       let profileStyle = {
-        background: `url(${imagePath}) no-repeat center / cover`,
-      }
+        background: `url(${imagePath}) no-repeat center / cover`
+      };
 
       return (
         <div key={actor.id} className="cast__actor actor">
@@ -45,19 +49,16 @@ const MovieCard = ({movie, width, actors}) => {
           <p className="actor__name">{actor.name}</p>
           <p className="actor__character-name">{actor.character}</p>
         </div>
-      )
-    })
+      );
+    });
   }
-    
 
   return (
     <div className="movie-card">
       <article className="movie-card__card card">
         <div className="card__wrapper">
           <section className="card__info">
-            <div className="card__poster">
-              {poster}
-            </div>
+            <div className="card__poster">{poster}</div>
             <div className="card__header">
               <div className="card__extra">
                 <div className="card__rating">{movie.rating || 6}</div>
@@ -78,13 +79,11 @@ const MovieCard = ({movie, width, actors}) => {
           <h3 className="card__cast-title">CAST</h3>
         </div>
         <section className="card__cast cast">
-          <div className="cast__actors">
-            {renderedActors}
-          </div>
+          <div className="cast__actors">{renderedActors}</div>
         </section>
       </article>
     </div>
-  )
-}
+  );
+};
 
-export default MovieCard;
+export default MovieDetails;

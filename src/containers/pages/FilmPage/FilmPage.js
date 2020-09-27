@@ -1,11 +1,11 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 import "./FilmPage.css";
 import Container from "../../../components/UI/Container/Container";
-import MovieCard from "../../../components/MovieCard/MovieCard";
+import MovieDetails from "../../../components/MovieDetails/MovieDetails";
 import * as actions from "../../../store/actions/actions";
-import {WidthConsumer} from "../../../utils/Context/width-context";
+import { WidthConsumer } from "../../../utils/Context/width-context";
 
 class FilmPage extends React.Component {
   componentDidMount() {
@@ -23,16 +23,18 @@ class FilmPage extends React.Component {
         <Container className="film-page__container">
           <WidthConsumer>
             {(width) => {
-              return <MovieCard 
-                width={width} 
-                actors={this.props.actors} 
-                movie={this.props.selectedMovie} 
-              />
+              return (
+                <MovieDetails
+                  width={width}
+                  actors={this.props.actors}
+                  movie={this.props.selectedMovie}
+                />
+              );
             }}
           </WidthConsumer>
         </Container>
       </main>
-    )
+    );
   }
 }
 
@@ -41,13 +43,13 @@ const mapStateToProps = (state) => {
     selectedMovie: state.selectedMovie.movie,
     actors: state.selectedMovie.actors
   };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     selectedMovieRequest: (id) => dispatch(actions.selectedMovieRequest(id)),
-    removeSelectedMovie: () => dispatch(actions.removeSelectedMovie()),
+    removeSelectedMovie: () => dispatch(actions.removeSelectedMovie())
   };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilmPage);
