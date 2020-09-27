@@ -10,27 +10,27 @@ import Container from "../UI/Container/Container";
 class Header extends React.Component {
   state = {
     showSidebar: false
-  }
+  };
 
   toggleShowSidebar = () => {
-    this.setState((state) => ({showSidebar: !state.showSidebar}));
+    this.setState((state) => ({ showSidebar: !state.showSidebar }));
     document.body.classList.toggle("open");
-  }
+  };
 
   onOpenSidebar = () => {
     this.toggleShowSidebar();
-  }
+  };
 
   onCloseSidebar = () => {
     this.toggleShowSidebar();
-  }
+  };
 
   onSidebarLinkClick = () => {
     this.onCloseSidebar();
-  }
+  };
 
   render() {
-    let {showSidebar} = this.state;
+    let { showSidebar } = this.state;
 
     return (
       <header className="header">
@@ -41,25 +41,28 @@ class Header extends React.Component {
             </Link>
           </div>
           <div className="header__search">
-            <Search onSearchSubmit={this.props.onSearchSubmit} searchValue={this.props.searchValue} />
+            <Search
+              onSearchSubmit={this.props.onSearchSubmit}
+              searchValue={this.props.searchValue}
+            />
           </div>
           <nav className="header__nav nav">
             <ul className="nav__items">
-              <li className="nav__item">
+              {/* <li className="nav__item">
                 <NavLink to="/movies" className="nav__link">
                   Movies
                 </NavLink>
               </li>
-              {/* <li className="nav__item">
+              <li className="nav__item">
                 <NavLink to="/tv-shows" className="nav__link">
                   TV Shows
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav__item">
                 <NavLink to="/watchlist" className="nav__link">
                   Watchlist
                 </NavLink>
-              </li> */}
+              </li>
             </ul>
           </nav>
           <div className="header__profile profile">
@@ -68,8 +71,12 @@ class Header extends React.Component {
                 <i className="fas fa-user"></i>
               </div>
               <div className="profile__box">
-                <button className="profile__button profile__button--log-in">Log in</button>
-                <button className="profile__button profile__button--sign-up">Sign up</button>
+                <button className="profile__button profile__button--log-in">
+                  Log in
+                </button>
+                <button className="profile__button profile__button--sign-up">
+                  Sign up
+                </button>
               </div>
             </div>
           </div>
@@ -78,13 +85,14 @@ class Header extends React.Component {
               <i className="fas fa-bars"></i>
             </button>
           </div>
-          <Sidebar 
-            show={showSidebar} 
-            onSidebarLinkClick={this.onSidebarLinkClick} 
-            onCloseSidebar={this.onCloseSidebar}/>
+          <Sidebar
+            show={showSidebar}
+            onSidebarLinkClick={this.onSidebarLinkClick}
+            onCloseSidebar={this.onCloseSidebar}
+          />
         </Container>
       </header>
-    )
+    );
   }
 }
 
