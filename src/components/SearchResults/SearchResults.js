@@ -16,7 +16,7 @@ const SearchResults = ({ searchData }) => {
   let renderedResults = results.map((result) => {
     return (
       <div className="search-result" key={result.id}>
-        <MovieCard result={result} />
+        <MovieCard movie={result} />
       </div>
     );
   });
