@@ -13,19 +13,35 @@ function transformDate(date) {
   };
 }
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, controls }) => {
   let releaseDate = transformDate(movie.release);
+
+  let poster = (
+    <Link to={`film/${movie.id}`} className="movie-card__poster">
+      <img
+        className="movie-card__poster-image"
+        src={`https://image.tmdb.org/t/p/w92${movie.poster}`}
+        alt="poster"
+      />
+    </Link>
+  );
+
+  if (controls) {
+    poster = (
+      <Link to={`film/${movie.id}`} className="saved-movie__poster">
+        <img
+          className="saved-movie__poster-image"
+          src={`https://image.tmdb.org/t/p/w154${movie.poster}`}
+          alt="poster"
+        />
+      </Link>
+    );
+  }
 
   return (
     <article className="movie-card">
       <div className="movie-card__wrapper">
-        <Link to={`film/${movie.id}`} className="movie-card__poster">
-          <img
-            className="movie-card__poster-image"
-            src={`https://image.tmdb.org/t/p/w92${movie.poster}`}
-            alt="poster"
-          />
-        </Link>
+        {poster}
         <section className="movie-card__description card-description">
           <div className="movie-description__header">
             <Link to={`film/${movie.id}`}>
@@ -46,9 +62,11 @@ const MovieCard = ({ movie }) => {
               {movie.description}
             </p>
           </div>
+          <div className="controls-desktop">{controls}</div>
         </section>
       </div>
       <p className="card-description__overview--mobile">{movie.description}</p>
+      <div className="controls-mobile">{controls}</div>
     </article>
   );
 };

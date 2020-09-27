@@ -14,11 +14,18 @@ let movie = {
 };
 
 const SavedMovies = () => {
+  let controls = (
+    <div className="saved-movie__controls">
+      <button className="controls-item controls-item--delete">
+        <i className="controls-item__icon far fa-times-circle"></i>
+        <span className="controls-item__text">Delete</span>
+      </button>
+    </div>
+  );
   return (
     <section className="saved-movies">
-      <h3 className="saved-movies__title">Saved to watch</h3>
-      <div className="saved-movies__movie">
-        <MovieCard movie={movie} />
+      <div className="saved-movies__movie saved-movie">
+        <MovieCard movie={movie} controls={controls} />
       </div>
     </section>
   );

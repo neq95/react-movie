@@ -1,4 +1,47 @@
-.saved-movies__title {
-  font-weight: 500;
-  font-size: 2rem;
+.saved-movie__controls {
+  margin-top: 10px;
+  padding-top: 5px;
+  text-align: right;
+}
+
+.controls-item {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--light-gray);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.controls-item__icon {
+  margin-right: 5px;
+  font-size: 1.6rem;
+}
+
+.controls-item--delete:hover .controls-item__icon{
+  color: var(--red);
+}
+
+.controls-item:hover .controls-item__text {
+  color: var(--background-main);
+}
+
+@media(min-width: 600px) {
+  .controls-item {
+    font-size: 1.6rem;
+  }
+
+  .controls-item__icon {
+    font-size: 1.8rem;
+  }
+}
+
+@media(min-width: 900px) {
+  .controls-item {
+    font-size: 1.8rem;
+  }
+
+  .controls-item__icon {
+    font-size: 2rem;
+  }
 }

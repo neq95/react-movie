@@ -1,15 +1,15 @@
-.movie-card {
+.movie-details {
   max-width: 450px;
   margin: 0 auto;
 }
 
-.card {
+.movie-details-card {
   border-radius: 10px;
   background-color: var(--white);
   color: var(--background-main);
 }
 
-.card__wrapper {
+.movie-details-card__wrapper {
   padding: 15px 15px 0 15px;
 }
 
@@ -19,22 +19,22 @@
   background-color: var(--light-gray);
 }
 
-.card__info {
+.movie-details-card__info {
   display: grid;
   grid-template-columns: 100px 1fr;
   column-gap: 15px;
 }
 
-.card__add--desktop {
+.movie-details-card__add--desktop {
   display: none;
 }
 
-.card__extra {
+.movie-details-card__extra {
   display: flex;
   justify-content: space-between;
 }
 
-.card__rating {
+.movie-details-card__rating {
   display: flex;
   padding: 5px 5px;
   width: 30px;
@@ -47,49 +47,49 @@
   align-items: center;
 }
 
-.card__add--mobile {
+.movie-details-card__add--mobile {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.card-add__icon {
+.movie-details-card-add__icon {
   font-size: 2rem;
   cursor: pointer;
   color: var(--main-dark);
 }
 
-.card-add__icon:hover {
+.movie-details-card-add__icon:hover {
   color: var(--main-light);
 }
 
-.card-add__text {
+.movie-details-card-add__text {
   font-size: 1.2rem;
   color: var(--background-main);
 }
 
-.card__title {
+.movie-details-card__title {
   font-weight: 400;
   font-size: 1.6rem;
   color: var(--main-medium);
   margin-top: 10px;
 }
 
-.card__duration {
+.movie-details-card__duration {
   font-size: 1.2rem;
   margin-top: 10px;
 }
 
-.card__description {
+.movie-details-card__description {
   margin-top: 20px;
   font-size: 1.4rem;
 }
 
-.card__description--desktop {
+.movie-details-card__description--desktop {
   display: none;
 }
 
-.card__cast-title {
+.movie-details-card__cast-title {
   margin-top: 20px;
   font-size: 1.6rem;
   font-weight: 400;
@@ -170,11 +170,11 @@
 }
 
 @media(min-width: 600px) {
-  .movie-card {
+  .movie-details {
     max-width: 750px;
   }
 
-  .card__wrapper {
+  .movie-details-card__wrapper {
     padding: 25px 25px 0 25px;
   }
 
@@ -183,15 +183,15 @@
     height: 230px;
   }  
 
-  .card__info {
+  .movie-details-card__info {
     grid-template-columns: 170px 1fr 150px; 
   }
 
-  .card__add--mobile {
+  .movie-details-card__add--mobile {
     display: none;
   }
 
-  .card__add--desktop {
+  .movie-details-card__add--desktop {
     display: inline-block;
     width: 100%;
     height: 50px;
@@ -204,40 +204,40 @@
     font-size: 1.6rem;
   }
 
-  .card__add--desktop:hover {
+  .movie-details-card__add--desktop:hover {
     background-color: var(--background-second);
   }
 
-  .card__rating {
+  .movie-details-card__rating {
     padding: 10px 10px;
     width: 40px;
     height: 40px;
     font-size: 1.4rem;
   }
 
-  .card-add__icon {
+  .movie-details-card-add__icon {
     font-size: 2.4rem;
   }
 
-  .card-add__text {
+  .movie-details-card-add__text {
     font-size: 1.4rem;
   }
 
-  .card__title {
+  .movie-details-card__title {
     font-size: 2rem;
     margin-top: 25px;
   }
 
-  .card__duration {
+  .movie-details-card__duration {
     font-size: 1.4rem;
   }
 
-  .card__description {
+  .movie-details-card__description {
     margin-top: 20px;
     font-size: 1.6rem;
   }
 
-  .card__cast-title {
+  .movie-details-card__cast-title {
     margin-top: 30px;
     font-size: 1.8rem;
   }
@@ -267,7 +267,7 @@
 }
 
 @media(min-width: 1200px) {
-  .movie-card {
+  .movie-details {
     max-width: 950px;
   }
 
@@ -276,22 +276,22 @@
     height: 280px;
   }
 
-  .card__description--desktop {
+  .movie-details-card__description--desktop {
     display: block;
     margin-top: 30px;
   }
 
-  .card__info {
+  .movie-details-card__info {
     grid-template-columns: 200px 450px 1fr;
     column-gap: 35px;
   }
 
-  .card__title {
+  .movie-details-card__title {
     font-size: 2.2rem;
     margin-top: 25px;
   }
 
-  .card__description {
+  .movie-details-card__description {
     display: none;
   }
 

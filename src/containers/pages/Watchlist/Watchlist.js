@@ -9,20 +9,8 @@ class Watchlist extends React.Component {
     return (
       <div className="watchlist">
         <Container>
-          <div className="watchlist__wrapper">
-            <nav className="watchlist__navigation watchlist-navigation">
-              <h2 className="watchlist-navigation__title">Your Watchlist</h2>
-              <ul className="watchlist-navigation__items">
-                <li className="watchlist-navigation__item">
-                  <i className="watchlist-navigation__item-icon fas fa-bookmark"></i>
-                  <p className="watchlist-navigation__item-text">
-                    Saved to watch
-                  </p>
-                </li>
-              </ul>
-            </nav>
-            <SavedMovies />
-          </div>
+          <h2 className="watchlist__title">Your Watchlist</h2>
+          <SavedMovies />
         </Container>
       </div>
     );

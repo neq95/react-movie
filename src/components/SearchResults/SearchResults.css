@@ -1,5 +1,6 @@
 .search-result {
   margin-bottom: 30px;
+  max-width: 450px;
 }
 
 @media(min-width: 600px) {

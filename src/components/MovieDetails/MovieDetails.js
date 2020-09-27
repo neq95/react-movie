@@ -54,31 +54,37 @@ const MovieDetails = ({ movie, width, actors }) => {
   }
 
   return (
-    <div className="movie-card">
-      <article className="movie-card__card card">
-        <div className="card__wrapper">
-          <section className="card__info">
-            <div className="card__poster">{poster}</div>
-            <div className="card__header">
-              <div className="card__extra">
-                <div className="card__rating">{movie.rating || 6}</div>
-                <div className="card__add--mobile card-add">
-                  <i className="card-add__icon fas fa-plus"></i>
-                  <span className="card-add__text">Want</span>
+    <div className="movie-details">
+      <article className="movie-details__card movie-details-card">
+        <div className="movie-details-card__wrapper">
+          <section className="movie-details-card__info">
+            <div className="movie-details-card__poster">{poster}</div>
+            <div className="movie-details-card__header">
+              <div className="movie-details-card__extra">
+                <div className="movie-details-card__rating">
+                  {movie.rating || 6}
+                </div>
+                <div className="movie-details-card__add--mobile movie-details-card-add">
+                  <i className="movie-details-card-add__icon fas fa-plus"></i>
+                  <span className="movie-details-card-add__text">Want</span>
                 </div>
               </div>
-              <h1 className="card__title">{movie.title}</h1>
-              <div className="card__duration">
+              <h1 className="movie-details-card__title">{movie.title}</h1>
+              <div className="movie-details-card__duration">
                 {Math.floor(movie.duration / 60)}h {movie.duration % 60}min
               </div>
-              <p className="card__description--desktop">{movie.description}</p>
+              <p className="movie-details-card__description--desktop">
+                {movie.description}
+              </p>
             </div>
-            <button className="card__add--desktop">Add to Watchlist</button>
+            <button className="movie-details-card__add--desktop">
+              Add to Watchlist
+            </button>
           </section>
-          <p className="card__description">{movie.description}</p>
-          <h3 className="card__cast-title">CAST</h3>
+          <p className="movie-details-card__description">{movie.description}</p>
+          <h3 className="movie-details-card__cast-title">CAST</h3>
         </div>
-        <section className="card__cast cast">
+        <section className="movie-details-card__cast cast">
           <div className="cast__actors">{renderedActors}</div>
         </section>
       </article>
