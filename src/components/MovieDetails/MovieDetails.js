@@ -4,7 +4,7 @@ import "./MovieDetails.css";
 import Spinner from "../UI/Spinner/Spinner";
 import * as imageConfig from "../../utils/imageConfig";
 
-const MovieDetails = ({ movie, width, actors }) => {
+const MovieDetails = ({ movie, width, actors, onMovieAdd }) => {
   if (!movie) {
     return <Spinner />;
   }
@@ -77,7 +77,10 @@ const MovieDetails = ({ movie, width, actors }) => {
                 {movie.description}
               </p>
             </div>
-            <button className="movie-details-card__add--desktop">
+            <button
+              onClick={() => onMovieAdd(movie)}
+              className="movie-details-card__add--desktop"
+            >
               Add to Watchlist
             </button>
           </section>

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import "./HomePage.css";
 import Container from "../../../components/UI/Container/Container";
 import * as actions from "../../../store/actions/actions";
-import ItemsGrid from "../../../components/ItemsGrid/ItemsGrid";
 import MoviePreview from "../../../components/MoviePreview/MoviePreview";
 
 class HomePage extends React.Component {
@@ -16,14 +15,16 @@ class HomePage extends React.Component {
 
   render() {
     let renderMovies = this.props.movies.map((movie) => {
-      return <MoviePreview width={this.props.width} movie={movie} />;
+      return (
+        <MoviePreview key={movie.id} width={this.props.width} movie={movie} />
+      );
     });
 
     return (
       <main className="home-page">
         <Container className="home__container">
           <h1 className="home-page__title">Popular Movies</h1>
-          <ItemsGrid>{renderMovies}</ItemsGrid>
+          <section className="home-page__movies">{renderMovies}</section>
         </Container>
       </main>
     );

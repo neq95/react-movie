@@ -1,8 +1,7 @@
 .watchlist-movie {
   background-color: var(--white);
   color: var(--background-main);
-  max-width: 250px;
-  justify-self: center;
+  width: 250px;
   font-size: 1.2rem;
 }
 
@@ -71,17 +70,11 @@
 
 @media(min-width: 600px) {
   .watchlist-movie {
-    max-width: 300px;
+    width: 300px;
     font-size: 1.4rem;
   }
 
   .wathclist-movie__poster {
     height: 180px;
-  }
-}
-
-@media(min-width: 900px) {
-  .watchlist-movie {
-    font-size: 1.6rem;
   }
 }

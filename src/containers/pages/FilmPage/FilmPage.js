@@ -6,6 +6,7 @@ import Container from "../../../components/UI/Container/Container";
 import MovieDetails from "../../../components/MovieDetails/MovieDetails";
 import * as actions from "../../../store/actions/actions";
 import { WidthConsumer } from "../../../utils/Context/width-context";
+import firebase from "../../../utils/ajax/firebase";
 
 class FilmPage extends React.Component {
   componentDidMount() {
@@ -16,6 +17,10 @@ class FilmPage extends React.Component {
   componentWillUnmount() {
     this.props.removeSelectedMovie();
   }
+
+  onMovieAdd = (movie) => {
+    firebase.postMovie(movie);
+  };
 
   render() {
     return (
@@ -28,6 +33,7 @@ class FilmPage extends React.Component {
                   width={width}
                   actors={this.props.actors}
                   movie={this.props.selectedMovie}
+                  onMovieAdd={this.onMovieAdd}
                 />
               );
             }}
