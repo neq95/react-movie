@@ -19,7 +19,6 @@ class Watchlist extends React.Component {
 
   render() {
     let movies = this.props.watchlist;
-    if (!Object.keys(movies).length === 0) return <div>No</div>;
 
     let renderedMovies = Object.keys(movies).map((key) => {
       return (
@@ -35,7 +34,11 @@ class Watchlist extends React.Component {
       <div className="watchlist">
         <Container>
           <h2 className="watchlist__title">Your Watchlist</h2>
-          <section className="saved-movies">{renderedMovies}</section>
+          {renderedMovies.length === 0 ? (
+            <div>You haven't added any movies to your watchlist.</div>
+          ) : (
+            <section className="saved-movies">{renderedMovies}</section>
+          )}
         </Container>
       </div>
     );
