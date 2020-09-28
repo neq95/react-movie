@@ -2,7 +2,7 @@ import React from "react";
 
 import "./WatchlistMovie.css";
 
-const WatchlistMovie = ({ movie }) => {
+const WatchlistMovie = ({ movie, onMovieDelete }) => {
   let posterImage = "https://image.tmdb.org/t/p/w300" + movie.backdrop;
   return (
     <article className="watchlist-movie">
@@ -20,7 +20,10 @@ const WatchlistMovie = ({ movie }) => {
         </span>
         <p className="watchlist-movie__description">{movie.description}</p>
         <div className="saved-movie__controls">
-          <button className="controls-item controls-item--delete">
+          <button
+            onClick={onMovieDelete}
+            className="controls-item controls-item--delete"
+          >
             <i className="controls-item__icon far fa-times-circle"></i>
             <span className="controls-item__text">Delete</span>
           </button>

@@ -4,7 +4,13 @@ import "./MovieDetails.css";
 import Spinner from "../UI/Spinner/Spinner";
 import * as imageConfig from "../../utils/imageConfig";
 
-const MovieDetails = ({ movie, width, actors, onMovieAdd }) => {
+const MovieDetails = ({
+  movie,
+  width,
+  actors,
+  onMovieAdd,
+  addedToWatchlist
+}) => {
   if (!movie) {
     return <Spinner />;
   }
@@ -65,8 +71,14 @@ const MovieDetails = ({ movie, width, actors, onMovieAdd }) => {
                   {movie.rating || 6}
                 </div>
                 <div className="movie-details-card__add--mobile movie-details-card-add">
-                  <i className="movie-details-card-add__icon fas fa-plus"></i>
-                  <span className="movie-details-card-add__text">Want</span>
+                  {addedToWatchlist ? (
+                    <i className="movie-details-card-add__icon disabled fas fa-check"></i>
+                  ) : (
+                    <i
+                      onClick={onMovieAdd}
+                      className="movie-details-card-add__icon fas fa-bookmark"
+                    ></i>
+                  )}
                 </div>
               </div>
               <h1 className="movie-details-card__title">{movie.title}</h1>
@@ -77,12 +89,19 @@ const MovieDetails = ({ movie, width, actors, onMovieAdd }) => {
                 {movie.description}
               </p>
             </div>
-            <button
-              onClick={() => onMovieAdd(movie)}
-              className="movie-details-card__add--desktop"
-            >
-              Add to Watchlist
-            </button>
+            {addedToWatchlist ? (
+              <button className="movie-details-card__add--desktop disabled">
+                <i className="fas fa-check"></i>
+                Added
+              </button>
+            ) : (
+              <button
+                onClick={() => onMovieAdd(movie)}
+                className="movie-details-card__add--desktop"
+              >
+                Add to Watchlist
+              </button>
+            )}
           </section>
           <p className="movie-details-card__description">{movie.description}</p>
           <h3 className="movie-details-card__cast-title">CAST</h3>

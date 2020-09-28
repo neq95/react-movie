@@ -1,11 +1,13 @@
 .watchlist {
   padding-top: 40px;
+  background-color: var(--background-main);
 }
 
 .watchlist__title {
   font-weight: 500;
   font-size: 2rem;
   margin-bottom: 30px;
+  color: var(--main-medium);
 }
 
 .saved-movies {
@@ -15,10 +17,18 @@
   gap: 30px 20px;
 }
 
+.watchlist-movie {
+  justify-self: center;
+}
+
 @media(min-width: 600px) {
   .saved-movies {
     margin-top: 40px;
     gap: 50px 30px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, 300px);
+  }
+
+  .watchlist__title {
+    font-size: 2.4rem;
   }
 }

@@ -1,15 +1,15 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./Sidebar.css";
 import Logo from "../../UI/Logo/Logo";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 
-const Sidebar = ({show, onSidebarLinkClick, onCloseSidebar}) => {
+const Sidebar = ({ show, onSidebarLinkClick, onCloseSidebar }) => {
   let sidebarClass = show ? "sidebar open" : "sidebar closed";
   return (
     <React.Fragment>
-      <Backdrop show={show} clicked={onCloseSidebar}/>
+      <Backdrop show={show} clicked={onCloseSidebar} />
       <div className={sidebarClass}>
         <div className="sidebar__logo">
           <Logo />
@@ -18,7 +18,7 @@ const Sidebar = ({show, onSidebarLinkClick, onCloseSidebar}) => {
           <li className="sidebar__link-box">
             <NavLink
               onClick={onSidebarLinkClick}
-              to="/" 
+              to="/"
               exact
               className="sidebar__link"
               activeClassName="sidebar__link--active"
@@ -26,7 +26,7 @@ const Sidebar = ({show, onSidebarLinkClick, onCloseSidebar}) => {
               Home
             </NavLink>
           </li>
-          <li className="sidebar__link-box">
+          {/* <li className="sidebar__link-box">
             <NavLink 
               onClick={onSidebarLinkClick}
               to="/movies" 
@@ -37,7 +37,7 @@ const Sidebar = ({show, onSidebarLinkClick, onCloseSidebar}) => {
               Movies
             </NavLink>
           </li>
-          {/* <li className="sidebar__link-box">
+          <li className="sidebar__link-box">
             <NavLink
               onClick={onSidebarLinkClick}
               to="/tv-shows"
@@ -47,9 +47,9 @@ const Sidebar = ({show, onSidebarLinkClick, onCloseSidebar}) => {
             >
               TV Shows
             </NavLink>
-          </li>
+          </li> */}
           <li className="sidebar__link-box">
-            <NavLink 
+            <NavLink
               onClick={onSidebarLinkClick}
               to="/watchlist"
               exact
@@ -58,14 +58,14 @@ const Sidebar = ({show, onSidebarLinkClick, onCloseSidebar}) => {
             >
               Watchlist
             </NavLink>
-          </li> */}
+          </li>
         </ul>
         <button className="sidebar__close" onClick={onCloseSidebar}>
           <i className="fas fa-times"></i>
         </button>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default Sidebar;

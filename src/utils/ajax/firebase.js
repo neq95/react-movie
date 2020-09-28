@@ -20,6 +20,14 @@ class Firebase {
 
     return await fetch(url).then((response) => response.json());
   };
+
+  deleteMovie = async (id) => {
+    let url = new URL(`watchlist/${id}.json`, this.#baseURL);
+
+    return await fetch(url, {
+      method: "DELETE"
+    }).then((response) => response.json());
+  };
 }
 
 const firebase = new Firebase();

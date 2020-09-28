@@ -29,6 +29,13 @@
   display: none;
 }
 
+.movie-details-card__add--desktop.disabled {
+  background-color: var(--main-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .movie-details-card__extra {
   display: flex;
   justify-content: space-between;
@@ -57,6 +64,10 @@
   font-size: 2rem;
   cursor: pointer;
   color: var(--main-dark);
+}
+
+.movie-details-card-add__icon.disabled {
+  color: var(--main-light);
 }
 
 .movie-details-card-add__icon:hover {
