@@ -1,0 +1,87 @@
+.watchlist-movie {
+  background-color: var(--white);
+  color: var(--background-main);
+  max-width: 250px;
+  justify-self: center;
+  font-size: 1.2rem;
+}
+
+.wathclist-movie__poster {
+  width: 100%;
+  height: 150px;
+}
+
+.watchlist-movie__poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+.watchlist-movie__overview {
+  padding: 10px;
+}
+
+.watchlist-movie__title {
+  font-weight: 500;
+  color: var(--main-medium);
+}
+
+.watchlist-movie__duration {
+  color: var(--light-gray);
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.watchlist-movie__description {
+  margin-top: 10px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.saved-movie__controls {
+  margin-top: 10px;
+  padding-top: 5px;
+  text-align: right;
+}
+
+.controls-item {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--light-gray);
+  font-size: 1.17em;
+  cursor: pointer;
+}
+
+.controls-item__icon {
+  margin-right: 5px;
+  font-size: 1.17em;
+}
+
+.controls-item--delete:hover .controls-item__icon{
+  color: var(--red);
+}
+
+.controls-item:hover .controls-item__text {
+  color: var(--background-main);
+}
+
+@media(min-width: 600px) {
+  .watchlist-movie {
+    max-width: 300px;
+    font-size: 1.4rem;
+  }
+
+  .wathclist-movie__poster {
+    height: 180px;
+  }
+}
+
+@media(min-width: 900px) {
+  .watchlist-movie {
+    font-size: 1.6rem;
+  }
+}

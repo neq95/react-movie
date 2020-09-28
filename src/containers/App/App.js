@@ -58,7 +58,11 @@ class App extends React.Component {
         {/* Use React Context to pass width to deep components */}
         <WidthProvider value={this.state.width}>
           <Switch>
-            <Route path="/" exact component={HomePage} />
+            <Route
+              path="/"
+              exact
+              render={() => <HomePage width={this.state.width} />}
+            />
             <Route path="/film" component={FilmPage} />
             <Route path="/search" component={SearchPage} />
             {/* <Route
